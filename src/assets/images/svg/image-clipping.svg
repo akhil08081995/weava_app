@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="234px" height="161px" viewBox="0 0 234 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <rect id="path-1" x="21.4031164" y="16.6605823" width="203" height="127"></rect>
+        <rect id="path-2" x="8" y="11.2617794" width="203" height="127"></rect>
+        <rect id="path-3" x="0" y="0" width="204" height="128"></rect>
+    </defs>
+    <g id="Premium" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-556.000000, -478.000000)">
+            <g id="Images" transform="translate(556.000000, 478.000000)">
+                <g id="Rectangle" transform="translate(122.903116, 80.160582) rotate(-10.000000) translate(-122.903116, -80.160582) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <rect stroke="#B1B1B1" stroke-width="5" x="23.9031164" y="19.1605823" width="198" height="122"></rect>
+                </g>
+                <g id="Rectangle" transform="translate(109.500000, 74.761779) rotate(-6.000000) translate(-109.500000, -74.761779) ">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <rect stroke="#B1B1B1" stroke-width="5" x="10.5" y="13.7617794" width="198" height="122"></rect>
+                </g>
+                <g id="image" transform="translate(0.000000, 5.000000)">
+                    <g id="Rectangle-12">
+                        <use fill="#94F5FF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                        <rect stroke="#5E5E5E" stroke-width="5" x="2.5" y="2.5" width="199" height="123"></rect>
+                    </g>
+                    <circle id="Oval-2" stroke="#5F5F5F" stroke-width="5" fill="#FEED54" cx="136" cy="48" r="14"></circle>
+                    <polygon id="Path-4" stroke="#5F5F5F" stroke-width="5" fill="#B8F478" points="121.804886 99.2947285 155.423662 75.362306 200.7921 108.818061 201.687376 124.373837 96.1786558 125.809195"></polygon>
+                    <polygon id="Path-3" stroke="#5F5F5F" stroke-width="5" fill="#C9FF86" points="2.91894756 113.029768 74.4631677 63.9215855 151.241085 125.837848 3.18337347 126.581659"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

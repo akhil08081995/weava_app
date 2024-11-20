@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="167px" height="61px" viewBox="0 0 167 61" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>Customizable Colors</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Referral" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Customizable-Colors">
+            <ellipse id="Oval" fill="#FF75BC" cx="13.3049451" cy="13.2014925" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#FFB700" cx="47.2554945" cy="13.2014925" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#FFDF00" cx="82.1236264" cy="13.2014925" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#BDF600" cx="117.909341" cy="13.2014925" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#00F6EB" cx="153.695055" cy="13.2014925" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#B9B9B9" cx="13.3049451" cy="47.7985075" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#FF7596" cx="47.2554945" cy="47.7985075" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#FFB700" cx="82.1236264" cy="47.7985075" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#F481FF" cx="117.909341" cy="47.7985075" rx="13.3049451" ry="13.2014925"></ellipse>
+            <ellipse id="Oval" fill="#75AFDD" cx="153.695055" cy="47.7985075" rx="13.3049451" ry="13.2014925"></ellipse>
+        </g>
+    </g>
+</svg>

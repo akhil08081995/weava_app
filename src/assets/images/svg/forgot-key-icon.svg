@@ -1,0 +1,42 @@
+<svg width="121px" height="130px" viewBox="530 -644 121 130" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="55.539394%" id="radialGradient-1">
+            <stop stop-color="#55FFD6" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="62.9168427%" id="radialGradient-2">
+            <stop stop-color="#FFBD00" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="57.4256594%" id="radialGradient-3">
+            <stop stop-color="#FF52EC" stop-opacity="0.693557518" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <path d="M33.3930121,92.0658153 L25.1506393,99.4979698 L16.5336133,92.0658153 L20.6547997,88.5355419 L16.5336133,85.0981703 L20.6547997,81.4749949 L16.5336133,78.0376235 L16.5336133,66.33198 L20.6547997,62.8946084 L16.5336133,59.4572369 L16.5336133,47.74023 C6.92547304,44.4921326 -4.97379915e-14,35.3138081 -4.97379915e-14,24.4986619 C-4.97379915e-14,10.9684246 10.8391565,-4.97379915e-14 24.2099338,-4.97379915e-14 C37.580711,-4.97379915e-14 48.4198675,10.9684246 48.4198675,24.4986619 C48.4198675,34.7397141 42.2101219,43.5131054 33.3930121,47.1734921 L33.3930121,92.0658153 Z M32.4767404,17.3283218 C32.4767404,12.7082408 28.7755649,8.96292509 24.2099338,8.96292509 C19.6443026,8.96292509 15.9431271,12.7082408 15.9431271,17.3283218 C15.9431271,21.9484028 19.6443026,25.6937186 24.2099338,25.6937186 C28.7755649,25.6937186 32.4767404,21.9484028 32.4767404,17.3283218 Z" id="path-4"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-5">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.565942529   0 0 0 0 0.41407195   0 0 0 0 0.592660502  0 0 0 0.295204937 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="noun_620831_cc" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(534.000000, -644.000000)">
+        <g id="miniKey">
+            <g id="Group">
+                <g>
+                    <path d="M64.7548962,127.764575 C93.3383361,127.764575 116.509792,104.312226 116.509792,75.3822875 C116.509792,46.452349 93.3383361,23 64.7548962,23 C36.1714563,23 13,46.452349 13,75.3822875 C13,104.312226 36.1714563,127.764575 64.7548962,127.764575 Z" id="Oval" fill="url(#radialGradient-1)" opacity="0.259561567"></path>
+                    <path d="M52.6491731,122.965296 C81.232613,122.965296 104.404069,99.512947 104.404069,70.5830084 C104.404069,41.6530699 81.232613,18.2007209 52.6491731,18.2007209 C24.0657332,18.2007209 0.894276899,41.6530699 0.894276899,70.5830084 C0.894276899,99.512947 24.0657332,122.965296 52.6491731,122.965296 Z" id="Oval" fill="url(#radialGradient-2)" opacity="0.259561567"></path>
+                    <path d="M61.2926641,105.63625 C89.876104,105.63625 113.04756,82.183901 113.04756,53.2539624 C113.04756,24.3240239 89.876104,0.871674917 61.2926641,0.871674917 C32.7092242,0.871674917 9.53776787,24.3240239 9.53776787,53.2539624 C9.53776787,82.183901 32.7092242,105.63625 61.2926641,105.63625 Z" id="Oval" fill="url(#radialGradient-3)" opacity="0.259561567"></path>
+                    <g transform="translate(50.707429, 71.816842) rotate(38.000000) translate(-50.707429, -71.816842) translate(26.207429, 21.816842)">
+                        <g id="Combined-Shape">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                            <use stroke="#987D9D" stroke-width="1" fill="#F9F9F9" fill-rule="evenodd" xlink:href="#path-4"></use>
+                        </g>
+                        <path d="M29.5243095,90.2836546 C29.5243095,90.6136603 29.7886791,90.881183 30.1147956,90.881183 C30.4409122,90.881183 30.7052818,90.6136603 30.7052818,90.2836546 L30.7052818,47.2047388 C30.7052818,46.874733 30.4409122,46.6072105 30.1147956,46.6072105 C29.7886791,46.6072105 29.5243095,46.874733 29.5243095,47.2047388 L29.5243095,90.2836546 L29.5243095,90.2836546 Z" id="Shape" fill="#B3A5B5"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

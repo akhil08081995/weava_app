@@ -1,0 +1,59 @@
+
+<svg width="250px" height="260px" viewBox="0 0 250 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="62.9168427%" id="radialGradient-1">
+            <stop stop-color="#FFBD00" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="62.9168427%" id="radialGradient-2">
+            <stop stop-color="#55FFD5" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="57.4256594%" id="radialGradient-3">
+            <stop stop-color="#FF52EC" stop-opacity="0.693557518" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <path d="M78.7372723,159.101265 C122.222667,159.101265 157.474545,123.485233 157.474545,79.5506324 C157.474545,35.6160313 122.222667,0 78.7372723,0 C35.2518775,0 0,35.6160313 0,79.5506324 C0,123.485233 35.2518775,159.101265 78.7372723,159.101265 Z M78.7372723,153.116527 C118.951182,153.116527 151.550998,120.179954 151.550998,79.5506324 C151.550998,38.9213105 118.951182,5.98473738 78.7372723,5.98473738 C38.5233621,5.98473738 5.92354683,38.9213105 5.92354683,79.5506324 C5.92354683,120.179954 38.5233621,153.116527 78.7372723,153.116527 Z" id="path-4"></path>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="40.8196105%" id="radialGradient-6">
+            <stop stop-color="#55FFD6" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="35.8109831%" id="radialGradient-7">
+            <stop stop-color="#FFF600" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="52.7874834%" id="radialGradient-8">
+            <stop stop-color="#FF52EC" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="floating-icon" style="mix-blend-mode: multiply;" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="circle">
+            <g id="cirle">
+                <path d="M110.036104,255.001735 C170.785491,255.001735 220.032599,205.284164 220.032599,143.954431 C220.032599,82.6246993 170.785491,32.9071281 110.036104,32.9071281 C49.2867163,32.9071281 0.0396076616,82.6246993 0.0396076616,143.954431 C0.0396076616,205.284164 49.2867163,255.001735 110.036104,255.001735 Z" id="Oval" fill="url(#radialGradient-1)"></path>
+                <path d="M139.036104,259.001735 C199.785491,259.001735 249.032599,209.284164 249.032599,147.954431 C249.032599,86.6246993 199.785491,36.9071281 139.036104,36.9071281 C78.2867163,36.9071281 29.0396077,86.6246993 29.0396077,147.954431 C29.0396077,209.284164 78.2867163,259.001735 139.036104,259.001735 Z" id="Oval" fill="url(#radialGradient-2)"></path>
+                <path d="M125.831306,222.094607 C186.580694,222.094607 235.827802,172.377035 235.827802,111.047303 C235.827802,49.7175712 186.580694,0 125.831306,0 C65.0819192,0 15.8348106,49.7175712 15.8348106,111.047303 C15.8348106,172.377035 65.0819192,222.094607 125.831306,222.094607 Z" id="Oval" fill="url(#radialGradient-3)"></path>
+                <g id="Group" transform="translate(26.505739, 46.523575)">
+                    <ellipse id="Oval" stroke="#F3F3F3" fill="#FFFFFF" cx="93.9877873" cy="94.5674979" rx="93.4076573" ry="94.3725633"></ellipse>
+                    <g id="Group-3" transform="translate(15.078055, 14.906277)">
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="Combined-Shape" fill-opacity="0.6796875" fill="#FFE300" xlink:href="#path-4"></use>
+                        <path d="M122.63072,216.092763 C195.322723,216.092763 254.251235,156.555516 254.251235,83.112601 C254.251235,9.66968572 195.322723,-49.8675606 122.63072,-49.8675606 C49.9387171,-49.8675606 -8.98979459,9.66968572 -8.98979459,83.112601 C-8.98979459,156.555516 49.9387171,216.092763 122.63072,216.092763 Z" id="Oval" fill="url(#radialGradient-6)" mask="url(#mask-5)"></path>
+                        <path d="M11.0167053,244.915455 C83.7087084,244.915455 142.63722,185.378209 142.63722,111.935294 C142.63722,38.4923786 83.7087084,-21.0448677 11.0167053,-21.0448677 C-61.6752978,-21.0448677 -120.603809,38.4923786 -120.603809,111.935294 C-120.603809,185.378209 -61.6752978,244.915455 11.0167053,244.915455 Z" id="Oval" fill="url(#radialGradient-7)" mask="url(#mask-5)"></path>
+                        <path d="M77.5620891,187.597014 C150.254092,187.597014 209.182604,128.059767 209.182604,54.6168521 C209.182604,-18.8260632 150.254092,-78.3633095 77.5620891,-78.3633095 C4.87008599,-78.3633095 -54.0584257,-18.8260632 -54.0584257,54.6168521 C-54.0584257,128.059767 4.87008599,187.597014 77.5620891,187.597014 Z" id="Oval" fill="url(#radialGradient-8)" mask="url(#mask-5)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="W" transform="translate(119.410486, 148.564175) rotate(-360.000000) translate(-119.410486, -148.564175) translate(81.410486, 120.064175)">
+            <polyline id="Triangle" stroke-opacity="0.792798913" stroke="#FFB013" fill-opacity="0.561537591" fill="#FFDA00" points="25.2435614 56.8343597 50.4871228 0.106991042 0 0.106991042 25.2435614 56.8343597"></polyline>
+            <polyline id="Triangle" stroke-opacity="0.643229167" stroke="#FF8282" fill-opacity="0.213286911" fill="#FF3636" points="50.4871228 56.8343597 75.7306842 0.106991042 25.2435614 0.106991042 50.4871228 56.8343597"></polyline>
+        </g>
+        <g id="W" opacity="0.754605877" style="mix-blend-mode: multiply;" transform="translate(119.410486, 148.564175) rotate(-360.000000) translate(-119.410486, -148.564175) translate(81.410486, 120.064175)">
+            <polyline id="Triangle" stroke-opacity="0.792798913" stroke="#FFB013" fill-opacity="0.561537591" fill="#FFDA00" points="25.2435614 56.8343597 50.4871228 0.106991042 0 0.106991042 25.2435614 56.8343597"></polyline>
+            <polyline id="Triangle" stroke-opacity="0.643229167" stroke="#FF8282" fill-opacity="0.213286911" fill="#FF3636" points="50.4871228 56.8343597 75.7306842 0.106991042 25.2435614 0.106991042 50.4871228 56.8343597"></polyline>
+        </g>
+    </g>
+</svg>

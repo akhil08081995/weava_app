@@ -1,0 +1,13 @@
+<svg width="162px" height="25px" viewBox="1161 278 162 25" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+    <defs></defs>
+    <g id="loading-state" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1161.000000, 278.000000)" opacity="0.673215951">
+        <g id="highlight-tool">
+            <path d="M12.8068182,25 C19.8798286,25 25.6136364,19.4035594 25.6136364,12.5 C25.6136364,5.59644063 19.8798286,0 12.8068182,0 C5.73380781,0 0,5.59644063 0,12.5 C0,19.4035594 5.73380781,25 12.8068182,25 Z" id="Oval" fill="#FFA4BE"></path>
+            <ellipse id="Oval" fill="#FFDE70" cx="46.6534091" cy="12.5" rx="12.8068182" ry="12.5"></ellipse>
+            <ellipse id="Oval" fill="#FFFB78" cx="80.5" cy="12.5" rx="12.8068182" ry="12.5"></ellipse>
+            <ellipse id="Oval" fill="#B4FFEC" cx="114.346591" cy="12.5" rx="12.8068182" ry="12.5"></ellipse>
+            <ellipse id="Oval" fill="#FBBDFF" cx="148.193182" cy="12.5" rx="12.8068182" ry="12.5"></ellipse>
+        </g>
+    </g>
+</svg>

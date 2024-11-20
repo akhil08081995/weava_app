@@ -1,0 +1,35 @@
+
+<svg width="265px" height="153px" viewBox="1110 235 265 153" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M0,18.0023804 C0,15.7919267 1.78345632,14 3.99932481,14 L92.3850913,14 L104.098975,0 L116.5,14 L204.995701,14 C207.207214,14 209,15.7925785 209,18.0023804 L209,70.9976196 C209,73.2080733 207.208977,75 205.000039,75 L3.99996134,75 C1.79084369,75 0,73.2074215 0,70.9976196 L0,18.0023804 Z" id="path-1"></path>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="7.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.402844668   0 0 0 0 0   0 0 0 0 0.52827381  0 0 0 0.623952672 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <mask id="mask-3" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="209" height="75" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Start-Highlighting" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1110.000000, 235.000000)">
+        <g id="start-highlighting">
+            <rect id="Rectangle-4" fill="#FBDFFF" opacity="0.50157416" x="0" y="0" width="265" height="52"></rect>
+            <text id="Start-Highlighting!" font-family="Lato-Light, Lato" font-size="32" font-weight="300" fill="#6F6F6F">
+                <tspan x="8.804" y="36">Start Highlighting! </tspan>
+            </text>
+        </g>
+        <g id="highlight-tool" transform="translate(28.000000, 60.000000)" opacity="0.500116604">
+            <g id="Rectangle-14">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use stroke="#FEECFF" mask="url(#mask-3)" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <path d="M30,58 C37.7319865,58 44,51.7319865 44,44 C44,36.2680135 37.7319865,30 30,30 C22.2680135,30 16,36.2680135 16,44 C16,51.7319865 22.2680135,58 30,58 Z" id="Oval" fill="#FFA4BE"></path>
+            <circle id="Oval" fill="#FFDE70" cx="67" cy="44" r="14"></circle>
+            <circle id="Oval" fill="#FFFB78" cx="104" cy="44" r="14"></circle>
+            <circle id="Oval" fill="#B4FFEC" cx="141" cy="44" r="14"></circle>
+            <circle id="Oval" fill="#FBBDFF" cx="178" cy="44" r="14"></circle>
+        </g>
+    </g>
+</svg>

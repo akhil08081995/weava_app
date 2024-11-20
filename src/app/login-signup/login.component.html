@@ -1,0 +1,95 @@
+<!-- <app-loading-state
+  *ngIf="currentAuthState === LoadingStatus.Loading"
+  [fullPage]="true"
+>
+</app-loading-state> -->
+
+<div class="login-container">
+  <div class="login-header-section">
+    <img src="assets/images/full-logo-black.png" class="login-image" />
+    <div class="login-text">Sign in to access your highlights</div>
+  </div>
+
+  <div class="login-body-section">
+    <div class="login-input-wrapper">
+      <div id="g_id_onload"></div>
+      <div class="g_id_signin btn-google-login"></div>
+    </div>
+
+    <div class="login-input-wrapper">
+      <div class="fb-login-button"></div>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="login-mode-break-wrapper">
+        <div class="login-mode-break-line">
+          <img src="assets/images/svg/line-break.svg" />
+        </div>
+        <div class="login-mode-break">OR</div>
+        <div class="login-mode-break-line">
+          <img src="assets/images/svg/line-break.svg" />
+        </div>
+      </div>
+
+      <div class="login-input-wrapper">
+        <input
+          formControlName="email"
+          class="login-text-input"
+          placeholder="Email"
+          type="email"
+          name="email"
+        />
+        <div class="error-text" *ngIf="email.invalid && email.touched">
+          <small class="text-danger" *ngIf="email.errors?.required">
+            Email is required.
+          </small>
+          <small class="text-danger" *ngIf="email.errors?.email">
+            Please provide a valid email address.
+          </small>
+        </div>
+      </div>
+
+      <div class="login-input-wrapper">
+        <input
+          formControlName="password"
+          class="login-text-input"
+          placeholder="Password"
+          type="password"
+          name="password"
+        />
+        <div class="error-text" *ngIf="password.invalid && password.touched">
+          <small class="text-danger" *ngIf="password.errors?.required">
+            Password is required.
+          </small>
+          <small class="text-danger" *ngIf="password.errors?.minlength">
+            Password must be more than 6 characters.
+          </small>
+        </div>
+      </div>
+
+      <div class="login-input-wrapper">
+        <button
+          type="submit"
+          class="btn login-button mb-2"
+          [disabled]="loginForm.invalid"
+        >
+          Log in
+        </button>
+      </div>
+
+      <div class="switch-login-wrapper">
+        <div class="switch-login-mode-text">
+          <span (click)="switchToSignup()">New user?</span>
+        </div>
+        <div class="switch-login-mode-text">
+          <a href="#">Forgot your password?</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="login-terms-description">
+    By signing up, you agree to our
+    <a (click)="goToTerms()" target="_blank">Terms and Privacy</a>
+  </div>
+</div>

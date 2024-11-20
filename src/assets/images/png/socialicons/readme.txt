@@ -1,0 +1,1 @@
+The images here in this folder are used for the email template feature of Weava.

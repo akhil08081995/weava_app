@@ -59,27 +59,27 @@
         <div class="login-input-wrapper">
           <input
             class="login-text-input"
-            formControlName="firstNameInput"
+            formControlName="firstName"
             placeholder="First Name"
             type="text"
             name="firstName"
           />
 
-          <!-- <div *ngIf="(firstNameInput?.invalid && firstNameInput?.touched) || firstNameInput?.dirty" class="error-text">
-            <small *ngIf="firstNameInput?.errors" class="text-danger"> Please provide a first name </small>
+          <!-- <div *ngIf="(firstName?.invalid && firstName?.touched) || firstName?.dirty" class="error-text">
+            <small *ngIf="firstName?.errors" class="text-danger"> Please provide a first name </small>
           </div> -->
         </div>
         <div class="login-input-wrapper">
           <input
             class="login-text-input"
-            formControlName="lastNameInput"
+            formControlName="lastName"
             placeholder="Last Name"
             type="text"
             name="lastName"
           />
 
-          <!-- <div *ngIf="(lastNameInput?.invalid && lastNameInput?.touched) || lastNameInput?.dirty" class="error-text">
-            <small *ngIf="lastNameInput?.errors" class="text-danger"> Please provide a last name </small>
+          <!-- <div *ngIf="(lastName?.invalid && lastName?.touched) || lastName?.dirty" class="error-text">
+            <small *ngIf="lastName?.errors" class="text-danger"> Please provide a last name </small>
           </div> -->
         </div>
         <div class="login-input-wrapper">
@@ -101,9 +101,8 @@
           <input
             class="login-text-input"
             formControlName="password"
-            placeholder="Email"
-            type="email"
-            name="email"
+            placeholder="Password"
+            name="password"
           />
 
           <!-- <div *ngIf="(passwordInput?.invalid && passwordInput?.touched) || passwordInput?.dirty" class="error-text">
@@ -113,7 +112,7 @@
           </div> -->
         </div>
 
-        <div class="incorrect-state-text error-text text-danger">SignUp</div>
+        <!-- <div class="incorrect-state-text error-text text-danger">SignUp</div> -->
 
         <div class="login-input-wrapper">
           <button type="submit" class="btn login-button mb-2">Sign up</button>

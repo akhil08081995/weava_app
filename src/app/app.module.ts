@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login-signup/login.module';
 import { LoginService } from './services/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor'; // Import your interceptor
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     HttpClientModule,
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    {
+      provide: HTTP_INTERCEPTORS, // Register the interceptor
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

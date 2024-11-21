@@ -47,7 +47,7 @@ export class SignupComponent {
           // Handle successful login, e.g., navigate to the dashboard
           if (res.status === 201) {
             console.log('signUp successful:', res);
-            // localStorage.setItem('authToken', res.body.token);
+            localStorage.setItem('authToken', res.idToken);
             this.router.navigate(['/questionnaire']); // Navigate to the dashboard
           }
         },

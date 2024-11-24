@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'questionnaire',
     component: QuestionnaireComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
   {
     path: 'onboarding',

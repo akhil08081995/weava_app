@@ -19,7 +19,7 @@ export class SignupComponent {
     this.signupForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.email]],
       lastName: ['', [Validators.required, Validators.email]],
-      email: ['', [Validators.required, Validators.email]],
+      emailInput: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -47,7 +47,7 @@ export class SignupComponent {
           // Handle successful login, e.g., navigate to the dashboard
           if (res.status === 201) {
             console.log('signUp successful:', res);
-            // localStorage.setItem('authToken', res.body.token);
+            localStorage.setItem('authToken', res.idToken);
             this.router.navigate(['/questionnaire']); // Navigate to the dashboard
           }
         },

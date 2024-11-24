@@ -13,7 +13,12 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
 
   // Routes protected by AuthGuard
-  { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+
   {
     path: 'questionnaire',
     component: QuestionnaireComponent,

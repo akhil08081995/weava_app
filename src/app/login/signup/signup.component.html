@@ -1,0 +1,150 @@
+<!-- <app-loading-state *ngIf="currentAuthState === LoadingStatus.Loading" [fullPage]="true"> </app-loading-state> -->
+<!-- CONTROL GROUP ONLY -->
+<div class="login-container">
+  <div class="login-header-section">
+    <img src="assets/images/full-logo-black.png" class="login-image" />
+
+    <div class="login-text">Sign up to create your first highlight</div>
+    <div class="login-text">
+      Create an account and transfer all existing data to it
+    </div>
+  </div>
+
+  <div class="login-body-section">
+    <div class="login-input-wrapper">
+      <div
+        id="g_id_onload"
+        data-context="signup"
+        data-ux_mode="popup"
+        data-callback="googleLoginClick"
+        data-itp_support="true"
+      ></div>
+      <div
+        class="g_id_signin btn-goole-login"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="outline"
+        data-text="signup_with"
+        data-size="large"
+        data-logo_alignment="center"
+        data-width="400"
+      ></div>
+    </div>
+
+    <div class="login-input-wrapper">
+      <div
+        class="fb-login-button"
+        data-width="400"
+        data-size="large"
+        data-button-type="continue_with"
+        data-use-continue-as="true"
+        data-scope="public_profile, email"
+        (click)="facebookDialogOpen()"
+      ></div>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+      <ng-container>
+        <div class="login-mode-break-wrapper">
+          <div class="login-mode-break-line">
+            <img src="assets/images/svg/line-break.svg" />
+          </div>
+
+          <div class="login-mode-break">OR</div>
+          <div class="login-mode-break-line">
+            <img src="assets/images/svg/line-break.svg" />
+          </div>
+        </div>
+
+        <div class="login-input-wrapper">
+          <input
+            class="login-text-input"
+            formControlName="firstName"
+            placeholder="First Name"
+            type="text"
+            name="firstName"
+          />
+
+          <!-- <div *ngIf="(firstName?.invalid && firstName?.touched) || firstName?.dirty" class="error-text">
+            <small *ngIf="firstName?.errors" class="text-danger"> Please provide a first name </small>
+          </div> -->
+        </div>
+        <div class="login-input-wrapper">
+          <input
+            class="login-text-input"
+            formControlName="lastName"
+            placeholder="Last Name"
+            type="text"
+            name="lastName"
+          />
+
+          <!-- <div *ngIf="(lastName?.invalid && lastName?.touched) || lastName?.dirty" class="error-text">
+            <small *ngIf="lastName?.errors" class="text-danger"> Please provide a last name </small>
+          </div> -->
+        </div>
+        <div class="login-input-wrapper">
+          <input
+            class="login-text-input"
+            formControlName="emailInput"
+            placeholder="Email"
+            type="email"
+            name="email"
+          />
+
+          <!-- <div *ngIf="(emailInput?.invalid && emailInput?.touched) || emailInput?.dirty" class="error-text">
+            <small *ngIf="emailInput?.errors?.pattern" class="text-danger">
+              Please provide a valid email address
+            </small>
+          </div> -->
+        </div>
+        <div class="login-input-wrapper">
+          <input
+            class="login-text-input"
+            formControlName="password"
+            placeholder="Password"
+            name="password"
+          />
+
+          <!-- <div *ngIf="(passwordInput?.invalid && passwordInput?.touched) || passwordInput?.dirty" class="error-text">
+            <small *ngIf="passwordInput?.errors" class="text-danger">
+              Password has to be more than 6 characters.
+            </small>
+          </div> -->
+        </div>
+
+        <!-- <div class="incorrect-state-text error-text text-danger">SignUp</div> -->
+
+        <div class="login-input-wrapper">
+          <button type="submit" class="btn login-button mb-2">Sign up</button>
+        </div>
+      </ng-container>
+
+      <div class="login-input-wrapper switch-login-wrapper">
+        <!-- <div *ngIf="signupError && signupError !== ''" class="incorrect-state-text error-text text-danger">
+          {{ signupError }}
+        </div> -->
+
+        <div class="login-hints">
+          Don't have Google or Facebook?
+          <a (click)="showSignupFormClick()"> Sign Up with Email </a>
+        </div>
+      </div>
+
+      <div class="switch-login-wrapper">
+        <div *ngIf="!mergeAccount" class="switch-login-mode-text">
+          <a (click)="switchToLogin()"> Existing user? </a>
+        </div>
+
+        <div *ngIf="mergeAccount" class="switch-login-mode-text">
+          <a class="delete" (click)="signOut()">
+            Delete this trial account and log in to your existing account
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="login-terms-description">
+    By signing up, you agree to our
+    <a (click)="goToTerms()" target="_blank">Terms and Privacy</a>
+  </div>
+</div>

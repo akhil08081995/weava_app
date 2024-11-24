@@ -1,0 +1,49 @@
+<div class="menu-panel">
+  <div *ngIf="toastMessage.type !== ''">
+    <ngb-toast
+      *ngIf="showToast"
+      [delay]="5000"
+      [autohide]="true"
+      (hidden)="hideToast()"
+      (click)="hideToast()"
+      [class]="'weava-notification-frame bg-' + toastMessage.type"
+    >
+      <div class="text-light">
+        {{ toastMessage.message }}
+      </div>
+    </ngb-toast>
+  </div>
+
+  <section class="menu-header">
+    <div class="gistnote-header-wrapper">
+      <div class="gistnote-header-logo-wrapper table-cell">
+        <img class="gistnote-header-logo" src="assets/images/svg/w-logo.svg" />
+      </div>
+
+      <div class="table-cell">Weava</div>
+    </div>
+  </section>
+
+  <div
+    [ngClass]="{ active: showDimBackground }"
+    class="menu-panel-dim-background"
+    (click)="hideAllModal()"
+  ></div>
+  <!-- The folder menu -->
+  <div *ngIf="folderMap.size > 0" class="menu-body">
+    <app-folder-list
+      [root]="true"
+      [activeFolderId]="activeFolderId"
+      [foldersMap]="folderMap"
+      [dragging]="dragging"
+      [isValidDropLocation]="isDragDataFolder"
+    ></app-folder-list>
+    <app-create-folder-field></app-create-folder-field>
+  </div>
+  <div *ngIf="isLogin" class="menu-footer">
+    <ng-container *ngIf="isAccountPanelShown">
+      <app-account-panel></app-account-panel>
+    </ng-container>
+    <app-dashboard-menu-footer></app-dashboard-menu-footer>
+  </div>
+</div>

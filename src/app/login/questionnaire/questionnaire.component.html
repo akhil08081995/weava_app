@@ -1,0 +1,188 @@
+<div class="questionnaire-primary-wrapper">
+  <div class="row questionnaire-primary-header">
+    <div class="col-12 text-center">
+      <img class="logo" src="assets/images/full-logo-black.png" />
+    </div>
+  </div>
+
+  <div class="row mt-0 questionnaire-non-mobile">
+    <div class="col-12 text-center">
+      <div class="questionnaire-description">Complete the questionnaire</div>
+      <div class="questionnaire-header">
+        so that we can customize Weava for you
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row questionnaire-mobile">
+    <div class="questionnaire-description col-12 text-center">
+      Weava is only available on desktop. <br />
+      We have sent you a download link with instructions to your email. <br />
+      Please install when you are on desktop.
+    </div>
+  </div> -->
+
+  <div class="row mt-0">
+    <div class="col-12 text-center">
+      <form>
+        <div class="questionnaire-wrapper">
+          <div class="questionnaire-description">I am using Weava for</div>
+          <div class="questionnaire-options-container">
+            <div
+              *ngFor="let option of purposeOptions"
+              class="questionnaire-select text-button"
+              [ngClass]="{ active: purpose === option.key }"
+              (click)="purpose = option.key"
+            >
+              {{ option.value }}
+            </div>
+          </div>
+        </div>
+
+        <!-- K12 Roles Selection -->
+        <div
+          *ngIf="!removeK12Roles && purpose === 'K12'"
+          class="questionnaire-wrapper"
+        >
+          <div class="questionnaire-description">I am a:</div>
+          <div class="questionnaire-options-container">
+            <div
+              *ngFor="let role of k12Roles"
+              class="questionnaire-select text-button"
+              [ngClass]="{ active: selectedRole === role.key }"
+              (click)="onRoleSelect(role)"
+            >
+              {{ getRoleName(role.value) }}
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="removeK12Roles" class="questionnaire-wrapper">
+          <div class="questionnaire-description">I am a:</div>
+          <div class="questionnaire-options-container">
+            <div
+              class="questionnaire-select text-button"
+              (click)="clickExtendedRoles()"
+            >
+              {{ selectedRole | titlecase }}
+            </div>
+          </div>
+        </div>
+
+        <!-- College Roles Selection -->
+        <div *ngIf="purpose === 'COLLEGE'" class="questionnaire-wrapper">
+          <div class="questionnaire-description">I am a:</div>
+          <div class="questionnaire-options-container">
+            <div
+              *ngFor="let role of collegeRoles"
+              class="questionnaire-select text-button"
+              [ngClass]="{ active: selectedRole === role.key }"
+              (click)="onRoleSelect(role)"
+            >
+              {{ role.value }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Work Industry Selection -->
+        <div *ngIf="purpose === 'WORK'" class="questionnaire-wrapper">
+          <div class="questionnaire-description">Work industry:</div>
+          <div class="questionnaire-options-container">
+            <div
+              *ngFor="let industry of workIndustryOptions"
+              class="questionnaire-select text-button"
+              [ngClass]="{ active: selectedIndustry === industry.key }"
+              (click)="onIndustrySelect(industry.key)"
+            >
+              {{ industry.value }}
+            </div>
+          </div>
+        </div>
+
+        <div class="questionnaire-wrapper" *ngIf="showInputBox()">
+          <div class="questionnaire-description">
+            What is the name of your school?
+          </div>
+          <input
+            class="text-input-field"
+            style="display: block; width: 100%; line-height: 35px"
+            autofocus
+            [(ngModel)]="schoolName"
+            name="schoolName"
+            placeholder="Enter school name..."
+          />
+        </div>
+
+        <!-- Personal Purpose Selection -->
+        <div
+          *ngIf="schoolName || purpose === 'PERSONAL'"
+          class="questionnaire-wrapper"
+        >
+          <div class="questionnaire-description">
+            Where did you hear about us?
+          </div>
+          <div style="display: flex; flex-wrap: wrap; text-align: left">
+            <div
+              *ngFor="let o of channelOptions"
+              style="flex-grow: 1; width: 50%"
+            >
+              <input
+                type="checkbox"
+                [(ngModel)]="channel[o.key]"
+                name="{{ o.key }}"
+              />
+              <label (click)="channel[o.key] = !channel[o.key]">{{
+                o.value
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="questionnaire-wrapper" *ngIf="selectedRole === 'TEACHER'">
+          <div class="questionnaire-description">Are you the tech person?</div>
+          <ng-container>
+            <div
+              class="questionnaire-select text-button"
+              (click)="techPerson(true)"
+            >
+              Yes
+            </div>
+            <div
+              class="questionnaire-select text-button"
+              (click)="techPerson(false)"
+            >
+              No
+            </div>
+          </ng-container>
+        </div>
+
+        <div *ngIf="selectedRole === 'OTHERS'" class="questionnaire-wrapper">
+          <div class="questionnaire-description">I am a:</div>
+          <div class="questionnaire-options-container">
+            <div
+              *ngFor="let role of extendedRoles"
+              class="questionnaire-select text-button"
+              [ngClass]="{ active: selectedRole === role.key }"
+              (click)="onRoleSelect(role, 'extendedRoles')"
+            >
+              {{ role.value }}
+            </div>
+          </div>
+        </div>
+
+        <div class="questionnaire-wrapper">
+          <div class="questionnaire-description">Redeem referral code</div>
+          <div class="referral-code-wrapper">
+            <input class="text-input-field referral-code-input" />
+          </div>
+        </div>
+
+        <div class="questionnaire-wrapper">
+          <button type="submit" class="questionnaire-select text-button">
+            <span>Submit</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

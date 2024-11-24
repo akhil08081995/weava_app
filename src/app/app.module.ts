@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginModule } from './login-signup/login.module';
 import { LoginService } from './services/login.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './services/auth.interceptor'; // Import your interceptor
+import { AuthInterceptor } from './services/auth.interceptor';
+import { SharedModule } from './common/common.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { AuthInterceptor } from './services/auth.interceptor'; // Import your in
     BrowserAnimationsModule,
     LoginModule,
     HttpClientModule,
+    SharedModule,
   ],
   providers: [
     LoginService,

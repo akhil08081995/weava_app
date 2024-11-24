@@ -5,6 +5,9 @@ import { CanActivate, Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
+  isLoggedIn(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private router: Router) {}
 
   canActivate(): boolean {

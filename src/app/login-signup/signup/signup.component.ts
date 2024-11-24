@@ -10,6 +10,7 @@ import { LoginService } from '../../services/login.service';
 })
 export class SignupComponent {
   signupForm: FormGroup;
+  showSignupForm: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -24,10 +25,6 @@ export class SignupComponent {
     });
   }
 
-  showSignupFormClick() {
-    throw new Error('Method not implemented.');
-  }
-
   mergeAccount: any;
   switchToLogin() {
     throw new Error('Method not implemented.');
@@ -38,6 +35,10 @@ export class SignupComponent {
   goToTerms() {
     throw new Error('Method not implemented.');
   }
+  showSignupFormClick(): void {
+    this.showSignupForm = true; // Show the signup form
+  }
+
   onSubmit() {
     if (this.signupForm.valid) {
       const {

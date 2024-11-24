@@ -17,8 +17,8 @@ export class SignupComponent {
     private router: Router
   ) {
     this.signupForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.email]],
-      lastName: ['', [Validators.required, Validators.email]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       emailInput: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -40,15 +40,21 @@ export class SignupComponent {
   }
   onSubmit() {
     if (this.signupForm.valid) {
-      const { firstName, lastName, email, password } = this.signupForm.value;
+      const {
+        firstName,
+        lastName,
+        emailInput: email,
+        password,
+      } = this.signupForm.value;
       this.loginService.signup(email, password, firstName, lastName).subscribe(
         (res: any) => {
           console.log('signUp successful:', res);
           // Handle successful login, e.g., navigate to the dashboard
-          if (res.status === 201) {
+          if (res === 201) {
             console.log('signUp successful:', res);
             localStorage.setItem('authToken', res.idToken);
-            this.router.navigate(['/questionnaire']); // Navigate to the dashboard
+            // this.router.navigate(['/questionnaire']); // Navigate to the dashboard
+            this.router.navigate(['/dashboard']); // Navigate to the dashboard
           }
         },
         (error: any) => {

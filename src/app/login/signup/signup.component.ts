@@ -17,9 +17,9 @@ export class SignupComponent {
     private router: Router
   ) {
     this.signupForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.email]],
-      lastName: ['', [Validators.required, Validators.email]],
-      email: ['', [Validators.required, Validators.email]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      emailInput: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
@@ -48,7 +48,7 @@ export class SignupComponent {
           if (res.status === 201) {
             console.log('signUp successful:', res);
             localStorage.setItem('authToken', res.idToken);
-            this.router.navigate(['/questionnaire']); // Navigate to the dashboard
+            this.router.navigate(['/dashboard']); // Navigate to the dashboard
           }
         },
         (error: any) => {

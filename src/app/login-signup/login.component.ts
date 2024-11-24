@@ -56,7 +56,7 @@ export class LoginComponent {
     this.router.navigate(['/signup']);
   }
   switchToForgetPassword() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/forget-password']);
   }
   goToTerms() {
     throw new Error('Method not implemented.');

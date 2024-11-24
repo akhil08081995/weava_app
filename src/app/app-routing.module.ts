@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './login-signup/signup/signup.component';
+import { ForgetPasswordComponent } from './login-signup/forget-password/forget-password.component';
 import { QuestionnaireComponent } from './login-signup/questionnaire/questionnaire.component';
 import { OnboardingComponent } from './login-signup/onboarding/onboarding.component';
 import { AuthGuard } from './guards/auth.guard'; // Import the AuthGuard
@@ -11,6 +12,7 @@ const routes: Routes = [
   // Public routes
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'forget-password', component: ForgetPasswordComponent },
 
   // Routes protected by AuthGuard
   {

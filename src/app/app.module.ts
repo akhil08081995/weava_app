@@ -7,7 +7,9 @@ import { LoginModule } from './login-signup/login.module';
 import { LoginService } from './services/login.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
-import { SharedModule } from './common/common.module';
+import { SharedModule } from './common/shared.module';
+import { CommonModule } from '@angular/common';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +20,7 @@ import { SharedModule } from './common/common.module';
     LoginModule,
     HttpClientModule,
     SharedModule,
+    DashboardModule,
   ],
   providers: [
     LoginService,

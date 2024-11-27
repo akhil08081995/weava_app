@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
+import { FolderService } from '../../services/folder.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,11 +12,13 @@ import { LoginService } from '../../services/login.service';
 export class SignupComponent {
   signupForm: FormGroup;
   showSignupForm: boolean = false;
+  rootFolder: any;
 
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private folderService: FolderService
   ) {
     this.signupForm = this.fb.group({
       firstName: ['', [Validators.required]],
@@ -54,8 +57,19 @@ export class SignupComponent {
           if (res === 201) {
             console.log('signUp successful:', res);
             localStorage.setItem('authToken', res.idToken);
-            // this.router.navigate(['/questionnaire']); // Navigate to the dashboard
-            this.router.navigate(['/dashboard']); // Navigate to the dashboard
+
+            // Fetch root folder and navigate to the dashboard after the call is complete
+            this.folderService.saveRootFolder().subscribe(
+              (data) => {
+                console.log('Root folder saved:', data);
+                this.rootFolder = data;
+                this.router.navigate(['/dashboard']); // Navigate to the dashboard after the API call is complete
+              },
+              (error) => {
+                console.error('Error saving root folder:', error);
+                // Handle error here (optional)
+              }
+            );
           }
         },
         (error: any) => {

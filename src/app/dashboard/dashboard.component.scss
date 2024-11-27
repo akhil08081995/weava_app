@@ -44,12 +44,12 @@ $turbo-yellow-90: darken($turbo-yellow, 40%);
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #fafafa;
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
@@ -107,22 +107,22 @@ $text-sidebar: #6b6b6b;
 }
 
 #sidebar {
-    min-width: 250px;
-    height: 100vh;
-    max-width: 250px;
-    background: $lila;
-    color: $text-sidebar;
-    transition: all 0.3s;
-    position: fixed; /* Fix the sidebar to the left */
-    z-index: 999; /* Ensure sidebar is above content */
+  min-width: 250px;
+  height: 100vh;
+  max-width: 250px;
+  background: $lila;
+  color: $text-sidebar;
+  transition: all 0.3s;
+  position: fixed; /* Fix the sidebar to the left */
+  z-index: 999; /* Ensure sidebar is above content */
 }
 
 #sidebar.active {
-    margin-left: -250px; /* Hide sidebar when collapsed */
+  margin-left: -250px; /* Hide sidebar when collapsed */
 }
 
 #sidebar.active + #content {
-    margin-left: 0; /* Remove margin when sidebar is collapsed */
+  margin-left: 0; /* Remove margin when sidebar is collapsed */
 }
 
 #sidebar .sidebar-header {
@@ -217,13 +217,154 @@ a.article:hover {
 ----------------------------------------------------- */
 
 #content {
-    width: 100%;
-    padding: 20px;
-    min-height: 100vh;
-    margin-left: 250px; /* Make room for the sidebar */
-    transition: margin-left 0.3s; /* Smooth transition for content */
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  margin-left: 250px; /* Make room for the sidebar */
+  transition: margin-left 0.3s; /* Smooth transition for content */
 }
 
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
+
+// -----------------
+// pop up css
+.popup-container {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  bottom: 110%; /* Adjust based on button size */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  width: 200px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 5; /* Behind the popup but in front of the page content */
+}
+
+.blurred {
+  filter: blur(5px); /* Blur the background */
+  pointer-events: none; /* Prevent interaction with blurred content */
+}
+
+.download {
+  cursor: pointer;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.download:hover {
+  color: #0056b3;
+}
+
+.popup {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+// .popup-top {
+//   margin-bottom: 15%;
+// }
+
+.popup-line {
+  border-top: 1px solid #000;
+  margin: 10px 0;
+}
+
+.popup-bottom {
+  margin-top: 5px;
+}
+
+.popup-bottom-content {
+  display: inline-block;
+  width: 20%;
+  padding: 5px;
+  text-align: center;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-top span {
+  margin-right: 5px; /* Adds 5px gap between spans */
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.storage-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0 !important;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.popup-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px; /* Adds space between each item */
+}
+
+.popup-bottom-content {
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-bottom-content:hover {
+  background-color: #f0f0f0;
+  font-size: 16px; /* Increases font size on hover */
+  border-color: #888;
+}
+
+.signout {
+  background-color: #d9534f;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signout:hover {
+  background-color: #c9302c;
+  font-size: 16px; /* Increase font size on hover */
+}
+
+// pop css end

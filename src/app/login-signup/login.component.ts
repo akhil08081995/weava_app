@@ -38,9 +38,10 @@ export class LoginComponent {
           console.log('Login successful:', res);
           // Handle successful login, e.g., navigate to the dashboard
           if (res.status === 201) {
-            console.log('Login successful:', res);
-            const token = 'hfjhruejndfjhudhfkjfkd';
+            const token = res.body.authToken;
             localStorage.setItem('authToken', token);
+            localStorage.setItem('login-details', JSON.stringify(res.body));
+
             this.router.navigate(['/dashboard']); // Navigate to the dashboard
           }
         },

@@ -12,6 +12,8 @@ export class LoginService {
   private googleAuthUrl = `${environment.apiBaseUrl}/auth/google`;
   private signupApiUrl = `${environment.apiBaseUrl}/auth/signup`;
 
+  loginDetails: any;
+
   constructor(private http: HttpClient) {}
 
   // Method to call the login API

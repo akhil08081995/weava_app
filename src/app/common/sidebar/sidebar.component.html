@@ -1801,7 +1801,7 @@
               <span>16.74 KB</span> used
             </div>
           </div>
-          <div class="cross-icon modal-cross-icon">
+          <div class="cross-icon modal-cross-icon" (click)="closePopup()">
             <img src="assets/images/svg/cross-icon.svg" />
           </div>
         </h3>
@@ -1845,7 +1845,7 @@
       </div>
       <!-- app-dashboard-menu-footer -->
       <div>
-        <div class="menu-panel-footer">
+        <div class="menu-panel-footer" (click)="togglePopup($event)">
           <div class="menu-item">
             <div class="menu-footer-text">Account Settings</div>
             <div id="navigation-user-settings" class="menu-footer-icon-wrapper">

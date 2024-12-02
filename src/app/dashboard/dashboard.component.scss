@@ -65,12 +65,10 @@ a:focus {
 }
 
 .navbar {
-  padding: 15px 10px;
+  padding: 6px 0px;
   background: #fff;
   border: none;
   border-radius: 0;
-  margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-btn {
@@ -107,7 +105,7 @@ $text-sidebar: #6b6b6b;
 }
 
 #sidebar {
-  min-width: 250px;
+  min-width: 240px;
   height: 100vh;
   max-width: 250px;
   background: $lila;
@@ -118,7 +116,7 @@ $text-sidebar: #6b6b6b;
 }
 
 #sidebar.active {
-  margin-left: -250px; /* Hide sidebar when collapsed */
+  margin-left: -240px; /* Hide sidebar when collapsed */
 }
 
 #sidebar.active + #content {
@@ -218,9 +216,8 @@ a.article:hover {
 
 #content {
   width: 100%;
-  padding: 20px;
   min-height: 100vh;
-  margin-left: 250px; /* Make room for the sidebar */
+  margin-left: 240px; /* Make room for the sidebar */
   transition: margin-left 0.3s; /* Smooth transition for content */
 }
 
@@ -367,4 +364,11 @@ a.article:hover {
   font-size: 16px; /* Increase font size on hover */
 }
 
-// pop css end
+// suraj changes
+.icon {
+  width: 25px;
+  height: 25px;
+  padding: 6px;
+}
+
+

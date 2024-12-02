@@ -20,7 +20,7 @@ export class SidebarComponent {
   constructor(private folderService: FolderService, private loginService: LoginService, private dialog: MatDialog) {
     document.addEventListener('click', (event) => {
       const target = event.target as HTMLElement; // Type cast the event.target to HTMLElement
-      if (target && !target.closest('#popup') && !target.closest('.download')) {
+      if (target && !target.closest('#popup') && !target.closest('.menu-panel-footer')) {
         this.closePopup();
       }
     });

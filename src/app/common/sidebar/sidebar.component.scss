@@ -1,0 +1,7 @@
+#sidebar {
+  transition: all 0.3s;
+  z-index: 999; /* Ensure sidebar is above content */
+}
+#sidebar.active {
+  margin-left: -240px; /* Hide sidebar when collapsed */
+}

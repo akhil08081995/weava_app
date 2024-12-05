@@ -12,12 +12,25 @@
 
   <div class="login-body-section">
     <div class="login-input-wrapper">
-      <div id="g_id_onload"></div>
+      <!-- Google Sign-In -->
+      <div id="googleSignInButton"></div>
       <div class="g_id_signin btn-google-login"></div>
     </div>
 
     <div class="login-input-wrapper">
-      <div class="fb-login-button"></div>
+      <div class="fb-login-button">
+        <div class="login-input-wrapper">
+          <!-- Facebook Sign-In -->
+          <button
+            id="facebookSignInButton"
+            (click)="loginWithFacebook()"
+            class="facebook-button"
+          >
+            <img src="facebook-icon.png" alt="Facebook Icon" />
+            Continue with Facebook
+          </button>
+        </div>
+      </div>
     </div>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">

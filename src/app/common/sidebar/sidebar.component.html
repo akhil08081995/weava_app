@@ -1792,7 +1792,9 @@
     <div class="menu-footer">
       <div class="nav-modal-content show" id="popup" *ngIf="isPopupVisible">
         <h3 class="nav-modal-header">
-          <div class="nav-modal-header-title name">Hi Suraj Paul</div>
+          <div class="nav-modal-header-title name">
+            Hi <span>Suraj Paul</span>
+          </div>
 
           <div class="nav-modal-body-description version">Version 1.56.36</div>
           <div class="nav-modal-storage">
@@ -1807,7 +1809,11 @@
         </h3>
         <div class="nav-modal-body">
           <div class="nav-modal-body-title link">
-            <a class="account-link-btn btn btn-sm py-0">Account Details</a>
+            <a
+              class="account-link-btn btn btn-sm py-0"
+              (click)="openAccountDetailsDialog()"
+              >Account Details</a
+            >
           </div>
           <div class="nav-modal-body-title link">
             <a

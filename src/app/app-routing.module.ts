@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
 
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: 'onboarding',
     component: OnboardingComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
   },
 
   // Redirect unknown paths to login

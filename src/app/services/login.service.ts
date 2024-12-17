@@ -124,19 +124,6 @@ export class LoginService {
         this.sdkLoaded = true;
         resolve(); // SDK successfully initialized
       };
-
-      // Add the SDK script to the DOM
-      const script = document.createElement('script');
-      script.src = 'https://connect.facebook.net/en_US/sdk.js';
-      script.async = true;
-      script.defer = true;
-      script.onload = () => {
-        if (!(window as any).FB) {
-          reject('Facebook SDK failed to load.');
-        }
-      };
-      script.onerror = () => reject('Error loading Facebook SDK script.');
-      document.body.appendChild(script);
     });
   }
 

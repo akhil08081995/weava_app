@@ -63,13 +63,15 @@ export class SignupComponent {
               (data) => {
                 console.log('Root folder saved:', data);
                 this.rootFolder = data;
-                this.router.navigate(['/dashboard']); // Navigate to the dashboard after the API call is complete
+                this.router.navigate(['/questionnaire']); // Navigate to the dashboard after the API call is complete
               },
               (error) => {
                 console.error('Error saving root folder:', error);
                 // Handle error here (optional)
               }
             );
+
+            // this.router.navigate(['/questionnaire']); // Navigate to the dashboard
           }
         },
         (error: any) => {

@@ -47,22 +47,25 @@ export class LoginComponent {
     // Now the user details are stored in the service
     const user = this.loginService.getUserDetails(); // You can retrieve the stored user details here
     console.log('Stored User Details:', user);
-
-    // Call your API with the idToken
-    // fetch('https://weavadev1.azurewebsites.net//auth/google', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ token: idToken }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log('API Response:', data);
-    //   })
-    //   .catch((error) => {
-    //     console.error('API Error:', error);
-    //   });
+    if (user && user.email_verified) {
+      this.loginService
+        .signup(user.email, 'null', user.given_name, user.family_name)
+        .subscribe(
+          (res: any) => {
+            console.log('signUp successful:', res);
+            // Handle successful login, e.g., navigate to the dashboard
+            if (res === 201) {
+              console.log('signUp successful:', res);
+              localStorage.setItem('authToken', res.idToken);
+              this.router.navigate(['/questionnaire']); // Navigate to the dashboard
+            }
+          },
+          (error: any) => {
+            console.error('signUp failed:', error);
+            // Handle login error
+          }
+        );
+    }
   }
 
   onGoogleSignInError(error: any) {

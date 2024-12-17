@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { loadGapiInsideDOM, gapi } from 'gapi-script';
 import { environment } from '../../environment';
-import * as jwt_decode from 'jwt-decode';
+// import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',

@@ -1,22 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FolderService {
-  private baseUrl = environment.apiBaseUrl + '/folders';
+  private baseUrl = 'https://weavadev1.azurewebsites.net/folders';
 
   constructor(private http: HttpClient) {}
+
+  /**
+   * Get Authorization headers with the token.
+   * @returns HttpHeaders
+   */
+  private getAuthHeaders(): HttpHeaders {
+    const authToken = localStorage.getItem('authToken'); // Retrieve auth token
+    return new HttpHeaders({
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json',
+    });
+  }
+
+  /**
+   * Fetch the folder list using GET.
+   * @returns Observable<any> - Folder list data
+   */
+  getFolderList(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get(`${this.baseUrl}`, { headers });
+  }
 
   /**
    * Fetch the root folder using POST.
    * @returns Observable<any> - Root folder data
    */
   saveRootFolder(): Observable<any> {
-    return this.http.post(`${this.baseUrl}/root`, {});
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.baseUrl}/root`, {}, { headers });
   }
 
   /**
@@ -24,7 +45,8 @@ export class FolderService {
    * @returns Observable<any> - Default folder data
    */
   saveDefaultFolder(): Observable<any> {
-    return this.http.post(`${this.baseUrl}/default`, {});
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.baseUrl}/default`, {}, { headers });
   }
 
   /**
@@ -33,6 +55,7 @@ export class FolderService {
    * @returns Observable<any> - Folder data for the given ID
    */
   updateFolderById(id: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/${id}`, {});
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.baseUrl}/${id}`, {}, { headers });
   }
 }

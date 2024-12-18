@@ -27,22 +27,32 @@ export class SidebarComponent {
   }
 
   ngOnInit(): void {
-    // Fetch default folder
-    this.folderService.saveDefaultFolder().subscribe((data) => {
-      this.defaultFolder = data;
+    // Fetch folder list and log response || Suraj
+    this.folderService.getFolderList().subscribe({
+      next: (data) => {
+        console.log('Folder List:', data);
+      },
+      error: (err) => {
+        console.error('Error fetching folder list:', err);
+      },
     });
+
+    // Fetch default folder
+    // this.folderService.saveDefaultFolder().subscribe((data) => {
+    //   this.defaultFolder = data;
+    // });
 
     // Fetch specific folder by ID
-    const folderId = '92049bab-4274-4311-ba74-4b595f5a76b2';
-    this.folderService.updateFolderById(folderId).subscribe((data) => {
-      this.specificFolder = data;
-    });
+    // const folderId = '92049bab-4274-4311-ba74-4b595f5a76b2';
+    // this.folderService.updateFolderById(folderId).subscribe((data) => {
+    //   this.specificFolder = data;
+    // });
 
-    const loginDetails = localStorage.getItem('login-details');
-    if (loginDetails) {
-      this.loginDetails = JSON.parse(loginDetails);
-      // this.loginDetails = parsedData.displayName;
-    }
+    // const loginDetails = localStorage.getItem('login-details');
+    // if (loginDetails) {
+    //   this.loginDetails = JSON.parse(loginDetails);
+    //   // this.loginDetails = parsedData.displayName;
+    // }
   }
 
   openAccountDetailsDialog() {

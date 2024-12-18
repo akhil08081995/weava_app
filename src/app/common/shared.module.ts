@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,
   ],
   exports: [HeaderComponent, SidebarComponent, FooterComponent], // Export components for use in other modules
   providers: [],

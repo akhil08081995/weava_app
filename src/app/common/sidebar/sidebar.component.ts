@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { loadFolders } from '../../store/folder.actions';
 import { FolderService } from '../../services/folder.service';
 import { LoginService } from '../../services/login.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -7,19 +10,26 @@ import { AccountDetailsComponent } from '../account-details/account-details.comp
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+  styleUrls: ['./sidebar.component.scss'], // Corrected 'styleUrl' to 'styleUrls'
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   rootFolder: any;
   defaultFolder: any;
   specificFolder: any;
   isSidebarExpanded: boolean = true;
   isPopupVisible: boolean = false;
   loginDetails: any;
+  folders$!: Observable<any[]>; // Ensured proper initialization with the non-null assertion operator
 
-  constructor(private folderService: FolderService, private loginService: LoginService, private dialog: MatDialog) {
+  constructor(
+    private folderService: FolderService,
+    private loginService: LoginService,
+    private dialog: MatDialog,
+    private store: Store<{ folder: { folderList: any[] } }>
+  ) {
+    // Close popup when clicking outside
     document.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement; // Type cast the event.target to HTMLElement
+      const target = event.target as HTMLElement;
       if (target && !target.closest('#popup') && !target.closest('.menu-panel-footer')) {
         this.closePopup();
       }
@@ -27,7 +37,7 @@ export class SidebarComponent {
   }
 
   ngOnInit(): void {
-    // Fetch folder list and log response || Suraj
+    // Log response from FolderService (debugging purposes)
     this.folderService.getFolderList().subscribe({
       next: (data) => {
         console.log('Folder List:', data);
@@ -37,45 +47,52 @@ export class SidebarComponent {
       },
     });
 
-    // Fetch default folder
-    // this.folderService.saveDefaultFolder().subscribe((data) => {
-    //   this.defaultFolder = data;
+    // Dispatch action to load folders (NgRx Store)
+    this.store.dispatch(loadFolders());
+
+    // Select folder list from the NgRx store
+    this.folders$ = this.store.select((state) => state.folder.folderList);
+
+    // Uncomment if needed: Fetch default folder
+    // this.folderService.saveDefaultFolder().subscribe({
+    //   next: (data) => (this.defaultFolder = data),
+    //   error: (err) => console.error('Error fetching default folder:', err),
     // });
 
-    // Fetch specific folder by ID
+    // Uncomment if needed: Fetch specific folder by ID
     // const folderId = '92049bab-4274-4311-ba74-4b595f5a76b2';
-    // this.folderService.updateFolderById(folderId).subscribe((data) => {
-    //   this.specificFolder = data;
+    // this.folderService.updateFolderById(folderId).subscribe({
+    //   next: (data) => (this.specificFolder = data),
+    //   error: (err) => console.error(`Error fetching folder ${folderId}:`, err),
     // });
 
-    // const loginDetails = localStorage.getItem('login-details');
-    // if (loginDetails) {
-    //   this.loginDetails = JSON.parse(loginDetails);
-    //   // this.loginDetails = parsedData.displayName;
-    // }
-  }
-
-  openAccountDetailsDialog() {
-    this.dialog.open(AccountDetailsComponent, {
-      width: '400px', // Customize width
-      data: {}, // If you want to pass any data to the dialog
-    });
-  }
-
-  togglePopup(event: Event): void {
-    event.stopPropagation(); // Prevents the event from bubbling up
-    this.isPopupVisible = !this.isPopupVisible;
-
-    // Add or remove the body blur effect
-    if (this.isPopupVisible) {
-      document.body.classList.add('blurred');
-    } else {
-      document.body.classList.remove('blurred');
+    // Load login details from localStorage
+    const loginDetails = localStorage.getItem('login-details');
+    if (loginDetails) {
+      this.loginDetails = JSON.parse(loginDetails);
     }
   }
 
+  // Open Account Details Dialog
+  openAccountDetailsDialog(): void {
+    this.dialog.open(AccountDetailsComponent, {
+      width: '400px', // Customize width
+      data: {}, // Pass data if required
+    });
+  }
+
+  // Toggle popup visibility
+  togglePopup(event: Event): void {
+    event.stopPropagation(); // Prevents bubbling up
+    this.isPopupVisible = !this.isPopupVisible;
+
+    // Add or remove blur effect
+    document.body.classList.toggle('blurred', this.isPopupVisible);
+  }
+
+  // Close popup
   closePopup(): void {
     this.isPopupVisible = false;
-    document.body.classList.remove('blurred'); // Remove blur when popup is closed
+    document.body.classList.remove('blurred'); // Remove blur
   }
 }

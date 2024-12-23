@@ -19,6 +19,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { FolderEffects } from './store/folder.effects';
 import { folderReducer } from './store/folder.reducer';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -32,6 +34,7 @@ import { folderReducer } from './store/folder.reducer';
     SharedModule,
     StoreModule.forRoot({ folder: folderReducer }), // NgRx store setup
     EffectsModule.forRoot([FolderEffects]), // NgRx effects setup
+    NgbModule
   ],
   providers: [
     LoginService,

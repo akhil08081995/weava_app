@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { loadGapiInsideDOM, gapi } from 'gapi-script';
 import { environment } from '../../environment';
-// import * as jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  styleUrls: ['./login.component.scss'], // Fixed typo: styleUrl -> styleUrls
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   googleClientId = environment.googleClientId;
+  authToken: string | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +25,22 @@ export class LoginComponent {
     });
   }
 
+  ngOnInit(): void {
+    // Redirect to dashboard if already logged in
+    const authToken = localStorage.getItem('authToken');
+    if (authToken && this.isTokenValid(authToken)) {
+      this.router.navigate(['/dashboard']);
+      return; // Prevent further execution of the login page
+    }
+
+    // Initialize Google Sign-In
+    this.loginService.initializeGoogleSignIn(
+      this.onGoogleSignInSuccess.bind(this),
+      this.onGoogleSignInError.bind(this)
+    );
+  }
+
+  // Getters for form controls
   get email() {
     return this.loginForm.get('email');
   }
@@ -34,106 +49,103 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  ngOnInit(): void {
-    this.loginService.initializeGoogleSignIn(
-      this.onGoogleSignInSuccess.bind(this),
-      this.onGoogleSignInError.bind(this)
-    );
-  }
-
-  onGoogleSignInSuccess(response: any) {
-    console.log('Google Sign-In successful', response);
-
-    // Now the user details are stored in the service
-    const user = this.loginService.getUserDetails(); // You can retrieve the stored user details here
-    console.log('Stored User Details:', user);
-    if (user && user.email_verified) {
-      this.loginService
-        .signup(user.email, 'null', user.given_name, user.family_name)
-        .subscribe(
-          (res: any) => {
-            console.log('signUp successful:', res);
-            // Handle successful login, e.g., navigate to the dashboard
-            if (res === 201) {
-              console.log('signUp successful:', res);
-              localStorage.setItem('authToken', res.idToken);
-              this.router.navigate(['/questionnaire']); // Navigate to the dashboard
-            }
-          },
-          (error: any) => {
-            console.error('signUp failed:', error);
-            // Handle login error
-          }
-        );
-    }
-  }
-
-  onGoogleSignInError(error: any) {
-    console.error('Google Sign-In failed', error);
-  }
-
-  onSubmit() {
+  // Submit the login form
+  onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
+
       this.loginService.login(email, password).subscribe(
         (res: any) => {
           console.log('Login successful:', res);
-          // Handle successful login, e.g., navigate to the dashboard
           if (res.status === 201) {
             const token = res.body.authToken;
             localStorage.setItem('authToken', token);
             localStorage.setItem('login-details', JSON.stringify(res.body));
 
-            this.router.navigate(['/dashboard']); // Navigate to the dashboard
+            // Navigate to dashboard on successful login
+            this.router.navigate(['/dashboard']);
           }
         },
         (error: any) => {
           console.error('Login failed:', error);
-          // Handle login error
         }
       );
     }
   }
 
-  switchToSignup() {
-    this.router.navigate(['/signup']);
-  }
-  switchToForgetPassword() {
-    this.router.navigate(['/forget-password']);
-  }
-  goToTerms() {
-    throw new Error('Method not implemented.');
+  // Google Sign-In Success Callback
+  onGoogleSignInSuccess(response: any): void {
+    console.log('Google Sign-In successful:', response);
+    const user = this.loginService.getUserDetails();
+
+    if (user && user.email_verified) {
+      this.loginService.signup(user.email, 'null', user.given_name, user.family_name).subscribe(
+        (res: any) => {
+          if (res === 201) {
+            console.log('Sign-up successful:', res);
+            localStorage.setItem('authToken', res.idToken);
+
+            // Navigate to questionnaire after successful signup
+            this.router.navigate(['/questionnaire']);
+          }
+        },
+        (error: any) => {
+          console.error('Sign-up failed:', error);
+        }
+      );
+    }
   }
 
-  loginWithFacebook() {
+  // Google Sign-In Error Callback
+  onGoogleSignInError(error: any): void {
+    console.error('Google Sign-In failed:', error);
+  }
+
+  // Facebook Login
+  loginWithFacebook(): void {
     this.loginService.loginWithFacebook(
       this.onFacebookLoginSuccess.bind(this),
       this.onFacebookLoginError.bind(this)
     );
   }
 
-  onFacebookLoginSuccess(response: any) {
-    console.log('Facebook Login successful', response);
+  // Facebook Login Success Callback
+  onFacebookLoginSuccess(response: any): void {
+    console.log('Facebook Login successful:', response);
     const accessToken = response.authResponse.accessToken;
 
-    // // Call your API with the accessToken
-    // fetch('https://weavadev1.azurewebsites.net//auth/google', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ token: accessToken }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log('API Response:', data);
-    //   })
-    //   .catch((error) => {
-    //     console.error('API Error:', error);
-    //   });
+    // Optionally, send the accessToken to the backend for validation
   }
 
-  onFacebookLoginError(error: any) {
-    console.error('Facebook Login failed', error);
+  // Facebook Login Error Callback
+  onFacebookLoginError(error: any): void {
+    console.error('Facebook Login failed:', error);
+  }
+
+  // Open Terms and Privacy Policy in a new tab
+  goToTerms(): void {
+    window.open('https://example.com/terms-and-privacy', '_blank'); // Replace with the actual URL
+  }
+
+  // Switch to the Signup Page
+  switchToSignup(): void {
+    this.router.navigate(['/signup']);
+  }
+
+  // Switch to the Forget Password Page
+  switchToForgetPassword(): void {
+    this.router.navigate(['/forget-password']);
+  }
+
+  // Validate JWT Token
+  private isTokenValid(token: string): boolean {
+    try {
+      const tokenPayload = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+      const currentTime = Math.floor(Date.now() / 1000);
+      return tokenPayload.exp > currentTime; // Check expiration time
+    } catch (error) {
+      console.error('Invalid token:', error);
+      return false; // Invalid token
+    }
   }
 }

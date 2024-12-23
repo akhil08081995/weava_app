@@ -5,26 +5,34 @@ import { CanActivate, Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  isLoggedIn(): any {
-    throw new Error('Method not implemented.');
-  }
   constructor(private router: Router) {}
 
   canActivate(): boolean {
-    const isLoggedIn = this.isUserLoggedIn(); // Replace this with your login check logic
+    const token = localStorage.getItem('authToken');
 
-    if (isLoggedIn) {
-      return true; // Allow access to the route
+    if (this.isValidToken(token)) {
+      return true; // Allow access if token is valid
     } else {
-      this.router.navigate(['/login']); // Redirect to login if not logged in
-      return false;
+      this.router.navigate(['/login']); // Redirect to login
+      return false; // Block access
     }
   }
 
-  // Dummy implementation for user login status
-  private isUserLoggedIn(): boolean {
-    // Replace with actual logic, e.g., checking a token in localStorage
-    const token = localStorage.getItem('authToken');
-    return !!token; // Returns true if token exists, otherwise false
+  // Check if the token is valid
+  private isValidToken(token: string | null): boolean {
+    if (!token) {
+      return false; // No token, not valid
+    }
+
+    try {
+      // Decode and validate token (e.g., expiration check, structure)
+      const tokenPayload = JSON.parse(atob(token.split('.')[1])); // Decode JWT
+      const currentTime = Math.floor(Date.now() / 1000);
+
+      return tokenPayload.exp > currentTime; // Check if the token is expired
+    } catch (error) {
+      console.error('Invalid token:', error);
+      return false; // Invalid token format
+    }
   }
 }

@@ -16,8 +16,6 @@
       <div _nghost-gqr-c46="">
         <div _ngcontent-gqr-c46="" class="folder-list">
           <ul _ngcontent-gqr-c46="">
-
-
             <li _ngcontent-gqr-c46="" *ngFor="let folder of folders">
               <div _nghost-gqr-c47="">
                 <div
@@ -188,11 +186,18 @@
                   </div>
 
                   <!-- <div _ngcontent-gqr-c47="" class="folder-nested" hidden="false"> -->
-                  <div _ngcontent-gqr-c47="" class="folder-nested" *ngIf="folder.subfolders && folder.subfolders.length > 0">
+                  <div
+                    _ngcontent-gqr-c47=""
+                    class="folder-nested"
+                    *ngIf="folder.subfolders && folder.subfolders.length > 0"
+                  >
                     <div _ngcontent-gqr-c47="" _nghost-gqr-c46="">
                       <div _ngcontent-gqr-c46="" class="folder-list">
                         <ul _ngcontent-gqr-c46="">
-                          <li _ngcontent-gqr-c46="" *ngFor="let subfolder of folder.subfolders">
+                          <li
+                            _ngcontent-gqr-c46=""
+                            *ngFor="let subfolder of folder.subfolders"
+                          >
                             <div _ngcontent-gqr-c46="" _nghost-gqr-c47="">
                               <div
                                 _ngcontent-gqr-c47=""
@@ -396,7 +401,6 @@
               </div>
               <div _ngcontent-gqr-c46="" class="spacer"></div>
             </li>
-            
           </ul>
         </div>
       </div>
@@ -506,8 +510,34 @@
       </div>
       <!-- app-dashboard-menu-footer -->
       <div>
-        <div class="menu-panel-footer" (click)="togglePopup($event)">
-          <div class="menu-item">
+        <div class="menu-panel-footer">
+          <div class="storage">
+            <h6>Storage</h6>
+            <div
+              role="progressbar"
+              aria-valuemin="0"
+              height="10px"
+              class="progress"
+              aria-valuenow="0.006260871887207032"
+              aria-valuemax="100"
+              aria-label="progress bar"
+              style="height: 10px"
+            >
+              <div class="progress-bar text-bg-info" style="width: 0.0062608%">
+                <!---->
+              </div>
+            </div>
+            <div class="storage-value">
+              <span>6.41 KB</span><span> of 100 MB used</span>
+            </div>
+            <button
+              id="navigation-upgrade-premium"
+              class="link-storage-upgrade"
+            >
+              Upgrade to Premium
+            </button>
+          </div>
+          <div class="menu-item" (click)="togglePopup($event)">
             <div class="menu-footer-text">Account Settings</div>
             <div id="navigation-user-settings" class="menu-footer-icon-wrapper">
               <img

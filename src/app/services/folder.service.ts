@@ -58,4 +58,14 @@ export class FolderService {
     const headers = this.getAuthHeaders();
     return this.http.post(`${this.baseUrl}/${id}`, {}, { headers });
   }
+
+  /**
+   * Create a new folder using POST.
+   * @param folderData - Folder data containing title
+   * @returns Observable<any> - Created folder response
+   */
+  createFolder(folderData: { title: string }): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.baseUrl}/root`, folderData, { headers });
+  }
 }

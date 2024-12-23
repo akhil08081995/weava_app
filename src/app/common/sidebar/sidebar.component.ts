@@ -13,64 +13,56 @@ import { AccountDetailsComponent } from '../account-details/account-details.comp
   styleUrls: ['./sidebar.component.scss'], // Corrected 'styleUrl' to 'styleUrls'
 })
 export class SidebarComponent implements OnInit {
-  rootFolder: any;
-  defaultFolder: any;
-  specificFolder: any;
+  folders: any[] = []; // Store folder list
   isSidebarExpanded: boolean = true;
   isPopupVisible: boolean = false;
-  loginDetails: any;
-  folders$!: Observable<any[]>; // Ensured proper initialization with the non-null assertion operator
+  newFolderTitle: string = ''; // Variable to bind input field
 
   constructor(
     private folderService: FolderService,
     private loginService: LoginService,
     private dialog: MatDialog,
     private store: Store<{ folder: { folderList: any[] } }>
-  ) {
-    // Close popup when clicking outside
-    document.addEventListener('click', (event) => {
-      const target = event.target as HTMLElement;
-      if (target && !target.closest('#popup') && !target.closest('.menu-panel-footer')) {
-        this.closePopup();
-      }
-    });
-  }
+  ) {}
 
   ngOnInit(): void {
-    // Log response from FolderService (debugging purposes)
+    this.fetchFolders(); // Initial fetch for folders
+
+    // Dispatch action to load folders (NgRx Store)
+    this.store.dispatch(loadFolders());
+  }
+
+  // Fetch folders from the service
+  private fetchFolders(): void {
     this.folderService.getFolderList().subscribe({
       next: (data) => {
         console.log('Folder List:', data);
+        this.folders = data.folderList; // Save folder list in a component property
       },
       error: (err) => {
         console.error('Error fetching folder list:', err);
       },
     });
+  }
 
-    // Dispatch action to load folders (NgRx Store)
-    this.store.dispatch(loadFolders());
-
-    // Select folder list from the NgRx store
-    this.folders$ = this.store.select((state) => state.folder.folderList);
-
-    // Uncomment if needed: Fetch default folder
-    // this.folderService.saveDefaultFolder().subscribe({
-    //   next: (data) => (this.defaultFolder = data),
-    //   error: (err) => console.error('Error fetching default folder:', err),
-    // });
-
-    // Uncomment if needed: Fetch specific folder by ID
-    // const folderId = '92049bab-4274-4311-ba74-4b595f5a76b2';
-    // this.folderService.updateFolderById(folderId).subscribe({
-    //   next: (data) => (this.specificFolder = data),
-    //   error: (err) => console.error(`Error fetching folder ${folderId}:`, err),
-    // });
-
-    // Load login details from localStorage
-    const loginDetails = localStorage.getItem('login-details');
-    if (loginDetails) {
-      this.loginDetails = JSON.parse(loginDetails);
+  // Handle folder creation
+  onCreateFolder(): void {
+    if (!this.newFolderTitle.trim()) {
+      console.error('Folder title cannot be empty');
+      return;
     }
+
+    const newFolder = { title: this.newFolderTitle }; // Create folder payload
+    this.folderService.createFolder(newFolder).subscribe({
+      next: (response: any) => {
+        console.log('Folder created successfully:', response);
+        this.fetchFolders(); // Refresh folder list after creation
+        this.newFolderTitle = ''; // Clear the input field
+      },
+      error: (error: any) => {
+        console.error('Error creating folder:', error);
+      },
+    });
   }
 
   // Open Account Details Dialog

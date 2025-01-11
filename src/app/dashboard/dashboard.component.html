@@ -37,22 +37,19 @@
           </div>
         </div>
         <div class="table-cell-middle" _nghost-grt-c58="">
-          <div _ngcontent-grt-c58="" class="format-button-group">
+          <div class="format-button-group">
             <label
-              _ngcontent-grt-c58=""
               for="upload-pdf-header-button"
               ngbtooltip="Upload PDFs"
               container="body"
               class="format-button"
               ><form
-                _ngcontent-grt-c58=""
                 novalidate=""
                 enctype="multipart/form-data"
                 method="post"
                 class="ng-untouched ng-pristine ng-valid"
               >
                 <input
-                  _ngcontent-grt-c58=""
                   appuploadpdfbutton=""
                   accept=".pdf"
                   id="upload-pdf-header-button"
@@ -61,60 +58,59 @@
                   class="d-none"
                 />
               </form>
-              <img
-                _ngcontent-grt-c58=""
+              <img               
                 src="assets/images/svg/upload-icon.svg"
                 class="icon"
             /></label>
             <div
-              _ngcontent-grt-c58=""
+             
               ngbtooltip="Export"
               container="body"
               class="format-button"
             >
               <img
-                _ngcontent-grt-c58=""
+               
                 src="assets/images/svg/download-icon.svg"
                 class="icon"
               />
             </div>
           </div>
-          <div _ngcontent-grt-c58="" class="dropdown-menu">
-            <div _ngcontent-grt-c58="" class="dropdown-menu-section">
-              <div _ngcontent-grt-c58="" class="dropdown-menu-section-header">
+          <div class="dropdown-menu">
+            <div class="dropdown-menu-section">
+              <div class="dropdown-menu-section-header">
                 Export As
               </div>
-              <div _ngcontent-grt-c58="" class="dropdown-menu-item text-row">
+              <div class="dropdown-menu-item text-row">
                 Word document (.docx)
                 <div
-                  _ngcontent-grt-c58=""
+                 
                   class="dropdown-menu-item-description"
                 >
                   Highlight colors preserved
                 </div>
               </div>
-              <div _ngcontent-grt-c58="" class="dropdown-menu-item text-row">
+              <div class="dropdown-menu-item text-row">
                 Excel workbook (.xlsx)
                 <div
-                  _ngcontent-grt-c58=""
+                 
                   class="dropdown-menu-item-description"
                 >
                   Excel table format
                 </div>
               </div>
-              <div _ngcontent-grt-c58="" class="dropdown-menu-item text-row">
+              <div class="dropdown-menu-item text-row">
                 .csv file
                 <div
-                  _ngcontent-grt-c58=""
+                 
                   class="dropdown-menu-item-description"
                 >
                   Comma separated values
                 </div>
               </div>
-              <div _ngcontent-grt-c58="" class="dropdown-menu-item text-row">
+              <div class="dropdown-menu-item text-row">
                 .txt file
                 <div
-                  _ngcontent-grt-c58=""
+                 
                   class="dropdown-menu-item-description"
                 >
                   Plain text format
@@ -395,8 +391,8 @@
         </div>
       </div>
       <div _ngcontent-svb-c96="" _nghost-svb-c93="">
-        <div _ngcontent-svb-c93="" class="main-panel-website-list">
-          <div _ngcontent-svb-c93="" _nghost-svb-c92="">
+        <div class="main-panel-website-list">
+          <div _nghost-svb-c92="">
             <div
               _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
@@ -522,7 +518,7 @@
             </div>
           </div>
 
-          <div _ngcontent-svb-c93="" _nghost-svb-c92="">
+          <div _nghost-svb-c92="">
             <div
               _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
@@ -648,7 +644,7 @@
             </div>
           </div>
 
-          <div _ngcontent-svb-c93="" _nghost-svb-c92="">
+          <div _nghost-svb-c92="">
             <div
               _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
@@ -775,63 +771,42 @@
           </div>
         </div>
 
-        <div _ngcontent-svb-c93="" class="website-list-bottom-button-wrapper">
-          <label
-            _ngcontent-svb-c93=""
-            for="upload-pdf-website-list-button"
-            class="website-list-bottom-button-group"
-            ><form
-              _ngcontent-svb-c93=""
-              novalidate=""
-              enctype="multipart/form-data"
-              method="post"
-            >
+        <div class="website-list-bottom-button-wrapper">
+          <!-- Upload PDF -->
+          <label for="upload-pdf-website-list-button" class="website-list-bottom-button-group">
+            <form novalidate enctype="multipart/form-data" method="post">
               <input
-                _ngcontent-svb-c93=""
-                appuploadpdfbutton=""
+                (change)="onFileSelected($event)"
                 accept=".pdf"
                 id="upload-pdf-website-list-button"
                 type="file"
-                multiple=""
+                multiple
                 style="display: none"
               />
             </form>
-            <div _ngcontent-svb-c93="" class="website-list-bottom-button-hint">
-              Highlight PDF <br _ngcontent-svb-c93="" />
+            <div class="website-list-bottom-button-hint">
+              Highlight PDF <br />
               from my computer:
             </div>
-            <div
-              _ngcontent-svb-c93=""
-              id="uploadTrigger"
-              class="text-button secondary-text-button upload-trigger"
-            >
-              <img
-                _ngcontent-svb-c93=""
-                src="assets/images/svg/upload-icon.svg"
-                class="upload-icon"
-              />
-              <div
-                _ngcontent-svb-c93=""
-                style="
-                  display: inline-block;
-                  vertical-align: middle;
-                  padding-left: 4px;
-                "
-              >
+            <div id="uploadTrigger" class="text-button secondary-text-button upload-trigger">
+              <img src="assets/images/svg/upload-icon.svg" class="upload-icon" />
+              <div style="display: inline-block; vertical-align: middle; padding-left: 4px;">
                 Upload PDFs
               </div>
-            </div></label
-          >
-          <div _ngcontent-svb-c93="" class="website-list-bottom-button-group">
-            <div _ngcontent-svb-c93="" class="website-list-bottom-button-hint">
-              Collaborate with <br _ngcontent-svb-c93="" />other people:
+            </div>
+          </label>          
+
+          <!-- Share Collection -->
+          <div class="website-list-bottom-button-group">
+            <div class="website-list-bottom-button-hint">
+              Collaborate with <br />other people:
             </div>
             <div
-              _ngcontent-svb-c93=""
+             
               class="text-button secondary-text-button"
             >
               <img
-                _ngcontent-svb-c93=""
+               
                 width="20px"
                 src="assets/images/svg/share-icon.svg"
                 style="
@@ -841,7 +816,7 @@
                 "
               />
               <div
-                _ngcontent-svb-c93=""
+               
                 style="
                   display: inline-block;
                   vertical-align: middle;
@@ -852,6 +827,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -881,3 +857,15 @@
     </ul>
   </div>
 </div>
+
+<!-- <div *ngIf="folderDetails; else noFolder">
+  <h1>Folder Details</h1>
+  <p><strong>Title:</strong> {{ folderDetails.title }}</p>
+  <p><strong>Creator:</strong> {{ folderDetails.creator }}</p>
+  <p><strong>Last Modified:</strong> {{ folderDetails.lastModifiedDate }}</p>
+  <p><strong>Created Date:</strong> {{ folderDetails.createDate | date }}</p>
+</div>
+
+<ng-template #noFolder>
+  <p>No folder selected or details unavailable.</p>
+</ng-template> -->

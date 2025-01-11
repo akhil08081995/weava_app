@@ -4,34 +4,33 @@ import { Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'weava_app';
-  showLayout: any;
-  authToken: string | null = null;
+  showLayout: boolean = false;
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    // Check if authToken exists in localStorage
-    this.authToken = localStorage.getItem('authToken');
+  ngOnInit(): void {
+    this.updateLayoutVisibility();
 
     // Listen to route changes to control layout visibility
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const currentRoute = this.router.url;
-        // Show layout only for authenticated routes (like /dashboard)
-        this.showLayout = ['/dashboard'].includes(currentRoute) && !!this.authToken;
+        this.updateLayoutVisibility();
       }
     });
   }
 
-  logout(): void {
-    // Clear the authToken and refresh the state
-    localStorage.removeItem('authToken');
-    this.authToken = null;
-    this.showLayout = false; // Hide the layout after logging out
-    this.router.navigate(['/login']); // Redirect to login page
+  private updateLayoutVisibility(): void {
+    const authToken = localStorage.getItem('authToken');
+    const isAuthenticated = !!authToken; // Check if the user is logged in
+    const currentRoute = this.router.url.split('?')[0]; // Ignore query parameters
+
+    // Show sidebar and header for authenticated users on specific routes
+    this.showLayout =
+      isAuthenticated &&
+      ['/dashboard', '/other-routes-you-want'].includes(currentRoute);
   }
 }

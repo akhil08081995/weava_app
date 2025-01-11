@@ -27,6 +27,8 @@
                       _ngcontent-gqr-c47=""
                       class="folder-wrapper lh-base draggable-content root"
                       draggable="true"
+                      [class.active]="folder.folderId === activeFolderId"
+                      (click)="setActiveFolder(folder.folderId)"
                     >
                       <div
                         _ngcontent-gqr-c47=""
@@ -89,6 +91,7 @@
                         <div _ngcontent-gqr-c47="" class="folder-action">
                           <button
                             _ngcontent-gqr-c47=""
+                            (click)="createSubFolder(folder.folderId)"
                             ngbtooltip="Create"
                             tooltipclass="weava-tooltip"
                             placement="left"
@@ -503,7 +506,7 @@
           <div class="nav-modal-body-title link">
             <a class="account-link-btn btn btn-sm py-0">Keyboard Shortcuts</a>
           </div>
-          <button class="user-account-signout-button text-button">
+          <button class="user-account-signout-button text-button" (click)="signout()">
             Sign Out
           </button>
         </div>

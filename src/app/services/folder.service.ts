@@ -10,6 +10,10 @@ export class FolderService {
 
   constructor(private http: HttpClient) {}
 
+  getFolderDetails(folderId: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/folders/${folderId}`);
+  }
+
   /**
    * Get Authorization headers with the token.
    * @returns HttpHeaders
@@ -68,4 +72,9 @@ export class FolderService {
     const headers = this.getAuthHeaders();
     return this.http.post(`${this.baseUrl}/root`, folderData, { headers });
   }
+
+  createSubfolder(folderId: string, payload: { title: string }): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.post<any>(`${this.baseUrl}/${folderId}`, payload, { headers });
+  }   
 }

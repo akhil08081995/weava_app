@@ -6,6 +6,7 @@ import { FolderService } from '../../services/folder.service';
 import { LoginService } from '../../services/login.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,22 +15,34 @@ import { AccountDetailsComponent } from '../account-details/account-details.comp
 })
 export class SidebarComponent implements OnInit {
   folders: any[] = []; // Store folder list
+  activeFolderId: string | null = null; // Active folder ID
   isSidebarExpanded: boolean = true;
   isPopupVisible: boolean = false;
-  newFolderTitle: string = ''; // Variable to bind input field
+  newFolderTitle: string = 'New Folder'; // Variable to bind input field
 
   constructor(
     private folderService: FolderService,
     private loginService: LoginService,
     private dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute,
     private store: Store<{ folder: { folderList: any[] } }>
   ) {}
 
   ngOnInit(): void {
     this.fetchFolders(); // Initial fetch for folders
 
-    // Dispatch action to load folders (NgRx Store)
-    this.store.dispatch(loadFolders());
+    this.store.dispatch(loadFolders()); // Dispatch action to load folders (NgRx Store)
+
+    // Fetch folder ID from URL or localStorage
+    this.route.queryParams.subscribe((params) => {
+      this.activeFolderId = params['folder'] || localStorage.getItem('folderId') || null;
+
+      // Save active folder ID to localStorage
+      if (this.activeFolderId) {
+        localStorage.setItem('folderId', this.activeFolderId);
+      }
+    });
   }
 
   // Fetch folders from the service
@@ -42,6 +55,16 @@ export class SidebarComponent implements OnInit {
       error: (err) => {
         console.error('Error fetching folder list:', err);
       },
+    });
+  }
+
+  // Set active folder
+  setActiveFolder(folderId: string): void {
+    this.activeFolderId = folderId;
+    localStorage.setItem('folderId', folderId); // Save active folder ID
+    this.router.navigate([], {
+      queryParams: { folder: folderId },
+      queryParamsHandling: 'merge', // Merge with existing query params
     });
   }
 
@@ -65,6 +88,30 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  createSubFolder(folderId: string): void {
+    if (!folderId) {
+      console.error('Folder ID is required to create a subfolder.');
+      return;
+    }
+  
+    const newSubFolder = { title: 'New Folder' }; // Payload for subfolder creation
+  
+    this.folderService.createSubfolder(folderId, newSubFolder).subscribe({
+      next: (response: any) => {
+        console.log('Subfolder created successfully:', response);
+        this.fetchFolders(); // Refresh folder list after successful creation
+      },
+      error: (error: any) => {
+        // Extract error message from the response
+        const errorMessage =
+          error?.error?.metadata?.error?.message ||
+          'An unexpected error occurred. Please try again.';
+        alert(errorMessage); // Display error message in an alert
+        console.error('Error creating subfolder:', errorMessage);
+      },
+    });
+  }  
+
   // Open Account Details Dialog
   openAccountDetailsDialog(): void {
     this.dialog.open(AccountDetailsComponent, {
@@ -86,5 +133,11 @@ export class SidebarComponent implements OnInit {
   closePopup(): void {
     this.isPopupVisible = false;
     document.body.classList.remove('blurred'); // Remove blur
+  }
+
+  signout(): void {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('folderId');
+    this.router.navigate(['/login']);
   }
 }

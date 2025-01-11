@@ -7,6 +7,7 @@ import { LoginService } from '../../services/login.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountDetailsComponent } from '../account-details/account-details.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sidebar',
@@ -26,6 +27,7 @@ export class SidebarComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService,
     private store: Store<{ folder: { folderList: any[] } }>
   ) {}
 
@@ -106,7 +108,7 @@ export class SidebarComponent implements OnInit {
         const errorMessage =
           error?.error?.metadata?.error?.message ||
           'An unexpected error occurred. Please try again.';
-        alert(errorMessage); // Display error message in an alert
+        this.toastr.error(errorMessage, 'Error');
         console.error('Error creating subfolder:', errorMessage);
       },
     });

@@ -20,6 +20,7 @@ import { FolderEffects } from './store/folder.effects';
 import { folderReducer } from './store/folder.reducer';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +35,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SharedModule,
     StoreModule.forRoot({ folder: folderReducer }), // NgRx store setup
     EffectsModule.forRoot([FolderEffects]), // NgRx effects setup
-    NgbModule
+    NgbModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    })
   ],
   providers: [
     LoginService,

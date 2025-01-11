@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,23 @@ export class AppComponent implements OnInit {
   title = 'weava_app';
   showLayout: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toastr: ToastrService) {}
+
+  showSuccess() {
+    this.toastr.success('Hello, world!', 'Success');
+  }
+
+  showError() {
+    this.toastr.error('Something went wrong!', 'Error');
+  }
+
+  showInfo() {
+    this.toastr.info('Here is some information.', 'Info');
+  }
+
+  showWarning() {
+    this.toastr.warning('Be careful!', 'Warning');
+  }
 
   ngOnInit(): void {
     this.updateLayoutVisibility();

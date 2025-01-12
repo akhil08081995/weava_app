@@ -5,6 +5,7 @@ import { FolderService } from '../services/folder.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountDetailsComponent } from '../common/account-details/account-details.component';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,8 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private folderService: FolderService,
     private dialog: MatDialog,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     // Close popup if clicking outside
     document.addEventListener('click', (event) => {
@@ -52,6 +54,15 @@ export class DashboardComponent implements OnInit {
         params['folder'] || localStorage.getItem('folderId') || null;
     });
   }
+
+  setActiveFolder(folderId: string): void {
+    this.folderId = folderId;
+    localStorage.setItem('folderId', folderId); // Save active folder ID in localStorage
+    this.router.navigate([], {
+      queryParams: { folder: folderId }, // Update query parameters with the folder ID
+      queryParamsHandling: 'merge', // Merge with existing query parameters
+    });
+  }  
 
   // Handle file selection
   onFileSelected(event: Event): void {
@@ -195,5 +206,35 @@ export class DashboardComponent implements OnInit {
   closePopup(): void {
     this.isPopupVisible = false;
     document.body.classList.remove('blurred');
+  }
+
+  formatDateWithSuffix(dateString: string): string {
+    const date = new Date(dateString);
+
+    const day = date.getDate();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const year = date.getFullYear();
+    const time = date.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+
+    const daySuffix = this.getDaySuffix(day);
+    return `${day}${daySuffix} ${month}, ${year}, ${time}`;
+  }
+
+  private getDaySuffix(day: number): string {
+    if (day > 3 && day < 21) return 'th';
+    switch (day % 10) {
+      case 1:
+        return 'st';
+      case 2:
+        return 'nd';
+      case 3:
+        return 'rd';
+      default:
+        return 'th';
+    }
   }
 }

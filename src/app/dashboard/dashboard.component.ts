@@ -160,7 +160,7 @@ export class DashboardComponent implements OnInit {
       this.folderService.getFolderDetails(this.folderId).subscribe({
         next: (data) => {
           console.log('Folder Details:', data);
-          this.folderDetails = data; // Store folder details
+          this.folderDetails = data.folderDetails; // Store folder details
         },
         error: (err) => {
           console.error('Error fetching folder details:', err);

@@ -211,6 +211,8 @@
                                     _ngcontent-gqr-c47=""
                                     class="folder-wrapper lh-base draggable-content"
                                     draggable="true"
+                                    [class.active]="subfolder.folderId === activeFolderId"
+                                    (click)="setActiveFolder(subfolder.folderId)"
                                   >
                                     <div
                                       _ngcontent-gqr-c47=""
@@ -292,6 +294,7 @@
                                           ngbtooltip="Create"
                                           tooltipclass="weava-tooltip"
                                           placement="left"
+                                          (click)="createSubFolder(subfolder.folderId)"
                                           class="folder-icons folder-action-icon"
                                         >
                                           <span

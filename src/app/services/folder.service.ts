@@ -11,7 +11,7 @@ export class FolderService {
   constructor(private http: HttpClient) {}
 
   getFolderDetails(folderId: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/folders/${folderId}`);
+    return this.http.get<any>(`${this.baseUrl}/${folderId}`);
   }
 
   /**

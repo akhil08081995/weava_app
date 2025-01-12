@@ -58,61 +58,36 @@
                   class="d-none"
                 />
               </form>
-              <img               
-                src="assets/images/svg/upload-icon.svg"
-                class="icon"
+              <img src="assets/images/svg/upload-icon.svg" class="icon"
             /></label>
-            <div
-             
-              ngbtooltip="Export"
-              container="body"
-              class="format-button"
-            >
-              <img
-               
-                src="assets/images/svg/download-icon.svg"
-                class="icon"
-              />
+            <div ngbtooltip="Export" container="body" class="format-button">
+              <img src="assets/images/svg/download-icon.svg" class="icon" />
             </div>
           </div>
           <div class="dropdown-menu">
             <div class="dropdown-menu-section">
-              <div class="dropdown-menu-section-header">
-                Export As
-              </div>
+              <div class="dropdown-menu-section-header">Export As</div>
               <div class="dropdown-menu-item text-row">
                 Word document (.docx)
-                <div
-                 
-                  class="dropdown-menu-item-description"
-                >
+                <div class="dropdown-menu-item-description">
                   Highlight colors preserved
                 </div>
               </div>
               <div class="dropdown-menu-item text-row">
                 Excel workbook (.xlsx)
-                <div
-                 
-                  class="dropdown-menu-item-description"
-                >
+                <div class="dropdown-menu-item-description">
                   Excel table format
                 </div>
               </div>
               <div class="dropdown-menu-item text-row">
                 .csv file
-                <div
-                 
-                  class="dropdown-menu-item-description"
-                >
+                <div class="dropdown-menu-item-description">
                   Comma separated values
                 </div>
               </div>
               <div class="dropdown-menu-item text-row">
                 .txt file
-                <div
-                 
-                  class="dropdown-menu-item-description"
-                >
+                <div class="dropdown-menu-item-description">
                   Plain text format
                 </div>
               </div>
@@ -232,8 +207,9 @@
   </div>
   <!-- main -->
   <div class="main-panel-list" _nghost-svb-c96="">
-    <section _ngcontent-svb-c96="" class="website-list-wrapper">
-      <div _ngcontent-svb-c96="" _nghost-svb-c94="">
+    <section class="website-list-wrapper">
+      <!-- Folder -->
+      <div>
         <div _ngcontent-svb-c94="" class="folder-card-list">
           <div _ngcontent-svb-c94="" class="flex folder-card">
             <div _ngcontent-svb-c94="" _nghost-svb-c47="">
@@ -390,19 +366,16 @@
           </div>
         </div>
       </div>
-      <div _ngcontent-svb-c96="" _nghost-svb-c93="">
+      <!-- Folder -->
+      <div>
         <div class="main-panel-website-list">
-          <div _nghost-svb-c92="">
+          <div>
             <div
-              _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
               draggable="true"
             >
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-favicon"
-              >
-                <div _ngcontent-svb-c92="" size="lg" class="ng-fa-icon">
+              <div class="main-panel-website-card-favicon">
+                <div size="lg" class="ng-fa-icon">
                   <svg
                     role="img"
                     aria-hidden="true"
@@ -419,48 +392,30 @@
                     ></path>
                   </svg>
                 </div>
-                <img
-                  _ngcontent-svb-c92=""
-                  src="assets/images/svg/pdf-website-icon.svg"
-                />
+                <img src="assets/images/svg/pdf-website-icon.svg" />
               </div>
-              <div _ngcontent-svb-c92="" class="main-panel-website-card-data">
+              <div class="main-panel-website-card-data">
                 <a
-                  _ngcontent-svb-c92=""
                   rel="noopener"
                   href="chrome-extension://cbnaodkpfinfiipjblikofhlhlcickei/src/pdfviewer/web/viewer.html?file=https://www.weavatools.com/apis/pdfstorage/-OC9E2ntUZoIKnikfiFw"
                   >Mr. Trivedi Kampala The Honest Co. .pdf</a
                 >
-                <div _ngcontent-svb-c92="" class="main-panel-website-stat">
-                  <div
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-colors"
-                  ></div>
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-total-highlights"
-                  >
+                <div class="main-panel-website-stat">
+                  <div class="main-panel-website-card-colors"></div>
+                  <span class="main-panel-website-card-total-highlights">
                     0 highlight </span
                   >|
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-created"
-                  >
+                  <span class="main-panel-website-card-created">
                     20th Nov
                   </span>
                 </div>
               </div>
 
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-actions"
-              >
+              <div class="main-panel-website-card-actions">
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Create Citation"
                     container="body"
                     class="website-card-action-icons-text"
@@ -469,11 +424,9 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Edit Highlight Source"
                     container="body"
                     class="website-card-action-icons-text"
@@ -482,7 +435,6 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   styleclass="highlight-card-icon-button"
                   ngbtooltip="delete"
                   tooltipclass="weava-tooltip"
@@ -498,37 +450,27 @@
                       _ngcontent-svb-c87=""
                       class="button-icon"
                       style="margin-right: 0px"
-                      ><img
-                        _ngcontent-svb-c92=""
-                        src="assets/images/svg/delete-icon.svg" /></span
+                      ><img src="assets/images/svg/delete-icon.svg" /></span
                     ><span _ngcontent-svb-c87="" class="button-title"></span>
                   </button>
                 </div>
               </div>
             </div>
 
-            <div
-              _ngcontent-svb-c92=""
-              class="main-panel-card-highlights"
-              hidden=""
-            >
-              <div _ngcontent-svb-c92="" _nghost-svb-c91="">
+            <div class="main-panel-card-highlights" hidden="">
+              <div _nghost-svb-c91="">
                 <div _ngcontent-svb-c91="" class="highlights-list"></div>
               </div>
             </div>
           </div>
 
-          <div _nghost-svb-c92="">
+          <div>
             <div
-              _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
               draggable="true"
             >
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-favicon"
-              >
-                <div _ngcontent-svb-c92="" size="lg" class="ng-fa-icon">
+              <div class="main-panel-website-card-favicon">
+                <div size="lg" class="ng-fa-icon">
                   <svg
                     role="img"
                     aria-hidden="true"
@@ -545,48 +487,30 @@
                     ></path>
                   </svg>
                 </div>
-                <img
-                  _ngcontent-svb-c92=""
-                  src="assets/images/svg/pdf-website-icon.svg"
-                />
+                <img src="assets/images/svg/pdf-website-icon.svg" />
               </div>
-              <div _ngcontent-svb-c92="" class="main-panel-website-card-data">
+              <div class="main-panel-website-card-data">
                 <a
-                  _ngcontent-svb-c92=""
                   rel="noopener"
                   href="chrome-extension://cbnaodkpfinfiipjblikofhlhlcickei/src/pdfviewer/web/viewer.html?file=https://www.weavatools.com/apis/pdfstorage/-OCMeHpUQ9I5l_U1MkX4"
                   >JD_ Senior Backend Engineer -VT Delhi.pdf</a
                 >
-                <div _ngcontent-svb-c92="" class="main-panel-website-stat">
-                  <div
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-colors"
-                  ></div>
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-total-highlights"
-                  >
+                <div class="main-panel-website-stat">
+                  <div class="main-panel-website-card-colors"></div>
+                  <span class="main-panel-website-card-total-highlights">
                     0 highlight </span
                   >|
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-created"
-                  >
+                  <span class="main-panel-website-card-created">
                     23rd Nov
                   </span>
                 </div>
               </div>
 
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-actions"
-              >
+              <div class="main-panel-website-card-actions">
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Create Citation"
                     container="body"
                     class="website-card-action-icons-text"
@@ -595,11 +519,9 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Edit Highlight Source"
                     container="body"
                     class="website-card-action-icons-text"
@@ -608,7 +530,6 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   styleclass="highlight-card-icon-button"
                   ngbtooltip="delete"
                   tooltipclass="weava-tooltip"
@@ -624,37 +545,27 @@
                       _ngcontent-svb-c87=""
                       class="button-icon"
                       style="margin-right: 0px"
-                      ><img
-                        _ngcontent-svb-c92=""
-                        src="assets/images/svg/delete-icon.svg" /></span
+                      ><img src="assets/images/svg/delete-icon.svg" /></span
                     ><span _ngcontent-svb-c87="" class="button-title"></span>
                   </button>
                 </div>
               </div>
             </div>
 
-            <div
-              _ngcontent-svb-c92=""
-              class="main-panel-card-highlights"
-              hidden=""
-            >
-              <div _ngcontent-svb-c92="" _nghost-svb-c91="">
+            <div class="main-panel-card-highlights" hidden="">
+              <div _nghost-svb-c91="">
                 <div _ngcontent-svb-c91="" class="highlights-list"></div>
               </div>
             </div>
           </div>
 
-          <div _nghost-svb-c92="">
+          <div>
             <div
-              _ngcontent-svb-c92=""
               class="main-panel-website-card draggable-content"
               draggable="true"
             >
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-favicon"
-              >
-                <div _ngcontent-svb-c92="" size="lg" class="ng-fa-icon">
+              <div class="main-panel-website-card-favicon">
+                <div size="lg" class="ng-fa-icon">
                   <svg
                     role="img"
                     aria-hidden="true"
@@ -671,48 +582,30 @@
                     ></path>
                   </svg>
                 </div>
-                <img
-                  _ngcontent-svb-c92=""
-                  src="assets/images/svg/pdf-website-icon.svg"
-                />
+                <img src="assets/images/svg/pdf-website-icon.svg" />
               </div>
-              <div _ngcontent-svb-c92="" class="main-panel-website-card-data">
+              <div class="main-panel-website-card-data">
                 <a
-                  _ngcontent-svb-c92=""
                   rel="noopener"
                   href="chrome-extension://cbnaodkpfinfiipjblikofhlhlcickei/src/pdfviewer/web/viewer.html?file=https://www.weavatools.com/apis/pdfstorage/-OCS-hn5PzfOL4RYgm9k"
                   >JD_ Senior Backend Engineer -VT Delhi.pdf</a
                 >
-                <div _ngcontent-svb-c92="" class="main-panel-website-stat">
-                  <div
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-colors"
-                  ></div>
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-total-highlights"
-                  >
+                <div class="main-panel-website-stat">
+                  <div class="main-panel-website-card-colors"></div>
+                  <span class="main-panel-website-card-total-highlights">
                     0 highlight </span
                   >|
-                  <span
-                    _ngcontent-svb-c92=""
-                    class="main-panel-website-card-created"
-                  >
+                  <span class="main-panel-website-card-created">
                     24th Nov
                   </span>
                 </div>
               </div>
 
-              <div
-                _ngcontent-svb-c92=""
-                class="main-panel-website-card-actions"
-              >
+              <div class="main-panel-website-card-actions">
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Create Citation"
                     container="body"
                     class="website-card-action-icons-text"
@@ -721,11 +614,9 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   class="website-card-header icon-button hover-target website-button"
                 >
                   <div
-                    _ngcontent-svb-c92=""
                     ngbtooltip="Edit Highlight Source"
                     container="body"
                     class="website-card-action-icons-text"
@@ -734,7 +625,6 @@
                   </div>
                 </div>
                 <div
-                  _ngcontent-svb-c92=""
                   styleclass="highlight-card-icon-button"
                   ngbtooltip="delete"
                   tooltipclass="weava-tooltip"
@@ -750,21 +640,15 @@
                       _ngcontent-svb-c87=""
                       class="button-icon"
                       style="margin-right: 0px"
-                      ><img
-                        _ngcontent-svb-c92=""
-                        src="assets/images/svg/delete-icon.svg" /></span
+                      ><img src="assets/images/svg/delete-icon.svg" /></span
                     ><span _ngcontent-svb-c87="" class="button-title"></span>
                   </button>
                 </div>
               </div>
             </div>
 
-            <div
-              _ngcontent-svb-c92=""
-              class="main-panel-card-highlights"
-              hidden=""
-            >
-              <div _ngcontent-svb-c92="" _nghost-svb-c91="">
+            <div class="main-panel-card-highlights" hidden="">
+              <div _nghost-svb-c91="">
                 <div _ngcontent-svb-c91="" class="highlights-list"></div>
               </div>
             </div>
@@ -773,7 +657,10 @@
 
         <div class="website-list-bottom-button-wrapper">
           <!-- Upload PDF -->
-          <label for="upload-pdf-website-list-button" class="website-list-bottom-button-group">
+          <label
+            for="upload-pdf-website-list-button"
+            class="website-list-bottom-button-group"
+          >
             <form novalidate enctype="multipart/form-data" method="post">
               <input
                 (change)="onFileSelected($event)"
@@ -788,25 +675,33 @@
               Highlight PDF <br />
               from my computer:
             </div>
-            <div id="uploadTrigger" class="text-button secondary-text-button upload-trigger">
-              <img src="assets/images/svg/upload-icon.svg" class="upload-icon" />
-              <div style="display: inline-block; vertical-align: middle; padding-left: 4px;">
+            <div
+              id="uploadTrigger"
+              class="text-button secondary-text-button upload-trigger"
+            >
+              <img
+                src="assets/images/svg/upload-icon.svg"
+                class="upload-icon"
+              />
+              <div
+                style="
+                  display: inline-block;
+                  vertical-align: middle;
+                  padding-left: 4px;
+                "
+              >
                 Upload PDFs
               </div>
             </div>
-          </label>          
+          </label>
 
           <!-- Share Collection -->
           <div class="website-list-bottom-button-group">
             <div class="website-list-bottom-button-hint">
               Collaborate with <br />other people:
             </div>
-            <div
-             
-              class="text-button secondary-text-button"
-            >
+            <div class="text-button secondary-text-button">
               <img
-               
                 width="20px"
                 src="assets/images/svg/share-icon.svg"
                 style="
@@ -816,7 +711,6 @@
                 "
               />
               <div
-               
                 style="
                   display: inline-block;
                   vertical-align: middle;
@@ -827,7 +721,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

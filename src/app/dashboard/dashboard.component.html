@@ -370,7 +370,7 @@
       <!-- Folder end-->
       <div *ngIf="folderDetails.websiteIds?.length > 0">
         <div class="main-panel-website-list" *ngFor="let website of folderDetails.websiteIds">
-          <div *ngFor="let entry of website | keyvalue">
+          <div>
             <div
               class="main-panel-website-card draggable-content"
               draggable="true"
@@ -399,8 +399,8 @@
               <div class="main-panel-website-card-data">
                 <a
                   rel="noopener"
-                  href="chrome-extension://cbnaodkpfinfiipjblikofhlhlcickei/src/pdfviewer/web/viewer.html?file=https://www.weavatools.com/apis/pdfstorage/-OC9E2ntUZoIKnikfiFw"
-                  >{{ entry.value }}.pdf</a
+                  [href]="website.url"
+                  >{{ website.fileName }}</a
                 >
                 <div class="main-panel-website-stat">
                   <div class="main-panel-website-card-colors"></div>
@@ -408,7 +408,7 @@
                     0 highlight </span
                   >|
                   <span class="main-panel-website-card-created">
-                    20th Nov
+                    20th Nov {{website.createDate}}
                   </span>
                 </div>
               </div>

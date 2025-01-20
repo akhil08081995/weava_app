@@ -210,7 +210,11 @@
     <section class="website-list-wrapper">
       <!-- Folder -->
       <div *ngFor="let subfolder of folderDetails.subfolders">
-        <div _ngcontent-svb-c94="" class="folder-card-list" (click)="setActiveFolder(subfolder.folderId)">
+        <div
+          _ngcontent-svb-c94=""
+          class="folder-card-list"
+          (click)="setActiveFolder(subfolder.folderId)"
+        >
           <div _ngcontent-svb-c94="" class="flex folder-card">
             <div _ngcontent-svb-c94="" _nghost-svb-c47="">
               <div _ngcontent-svb-c47="" class="folder text-truncate-ellipsis">
@@ -226,7 +230,21 @@
                         class="folder-icons folder-icon-folder"
                       >
                         <div _ngcontent-svb-c47="" class="ng-fa-icon">
-                          <svg role="img" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="folder" class="svg-inline--fa fa-folder folder-folder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"></path></svg>
+                          <svg
+                            role="img"
+                            aria-hidden="true"
+                            focusable="false"
+                            data-prefix="fas"
+                            data-icon="folder"
+                            class="svg-inline--fa fa-folder folder-folder"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                            <path
+                              fill="currentColor"
+                              d="M64 480H448c35.3 0 64-28.7 64-64V160c0-35.3-28.7-64-64-64H288c-10.1 0-19.6-4.7-25.6-12.8L243.2 57.6C231.1 41.5 212.1 32 192 32H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64z"
+                            ></path>
+                          </svg>
                           <!-- <svg
                             role="img"
                             aria-hidden="true"
@@ -249,7 +267,7 @@
                           ><span
                             _ngcontent-svb-c47=""
                             class="folder-title text-truncate"
-                            >{{subfolder.title}}</span
+                            >{{ subfolder.title }}</span
                           ></a
                         ><span _ngcontent-svb-c47="" class="folder-create-date">
                           {{ formatDateWithSuffix(subfolder.createDate) }}
@@ -368,13 +386,15 @@
         </div>
       </div>
       <!-- Folder end-->
-      <div *ngIf="folderDetails.websiteIds?.length > 0">
-        <div class="main-panel-website-list" *ngFor="let website of folderDetails.websiteIds">
+      <div>
+        <div
+          class="main-panel-website-list"
+          *ngFor="let website of folderDetails.websiteIds"
+        >
           <div>
             <div
               class="main-panel-website-card draggable-content"
               draggable="true"
-
             >
               <div class="main-panel-website-card-favicon">
                 <div size="lg" class="ng-fa-icon">
@@ -397,18 +417,16 @@
                 <img src="assets/images/svg/pdf-website-icon.svg" />
               </div>
               <div class="main-panel-website-card-data">
-                <a
-                  rel="noopener"
-                  [href]="website.url"
-                  >{{ website.fileName }}</a
-                >
+                <a rel="noopener" [href]="website.url">{{
+                  website.fileName
+                }}</a>
                 <div class="main-panel-website-stat">
                   <div class="main-panel-website-card-colors"></div>
                   <span class="main-panel-website-card-total-highlights">
                     0 highlight </span
                   >|
                   <span class="main-panel-website-card-created">
-                    20th Nov {{website.createDate}}
+                    20th Nov {{ website.createDate }}
                   </span>
                 </div>
               </div>
@@ -534,7 +552,7 @@
             </div>
           </div>
         </div>
-      </div>      
+      </div>
     </section>
   </div>
   <!-- main -->

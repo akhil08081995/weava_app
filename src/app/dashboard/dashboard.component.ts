@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Renderer2, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { FolderService } from '../services/folder.service';
@@ -6,13 +6,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { AccountDetailsComponent } from '../common/account-details/account-details.component';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   isSidebarExpanded: boolean = true;
   isPopupVisible: boolean = false;
   loginDetails: any;
@@ -24,7 +25,8 @@ export class DashboardComponent implements OnInit {
     private folderService: FolderService,
     private dialog: MatDialog,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private el: ElementRef
   ) {
     // Close popup if clicking outside
     document.addEventListener('click', (event) => {
@@ -34,6 +36,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
   ngOnInit(): void {
     this.getFolderId(); // Fetch folderId
     this.getLoginDetails(); // Fetch login details
@@ -43,11 +46,20 @@ export class DashboardComponent implements OnInit {
     const loginDetails = localStorage.getItem('login-details');
     if (loginDetails) {
       this.loginDetails = JSON.parse(loginDetails);
-      // this.loginDetails = parsedData.displayName;
     }
   }
 
-  // Fetch folderId from URL or localStorage
+  // Initialize Bootstrap alerts after the view is fully initialized
+  ngAfterViewInit(): void {
+    this.initializeBootstrapAlerts();
+  }
+
+  private initializeBootstrapAlerts(): void {
+    this.el.nativeElement.querySelectorAll('.alert-dismissible').forEach((alert: HTMLElement) => {
+      new bootstrap.Alert(alert);
+    });
+  }
+
   private getFolderId(): void {
     this.route.queryParams.subscribe((params) => {
       this.folderId =
@@ -62,9 +74,8 @@ export class DashboardComponent implements OnInit {
       queryParams: { folder: folderId }, // Update query parameters with the folder ID
       queryParamsHandling: 'merge', // Merge with existing query parameters
     });
-  }  
+  }
 
-  // Handle file selection
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
@@ -82,11 +93,10 @@ export class DashboardComponent implements OnInit {
         folderId: this.folderId,
       };
 
-      this.uploadFile(payload, fileSize); // Include fileSize for the second API
+      this.uploadFile(payload, fileSize);
     }
   }
 
-  // Upload file to the server
   private uploadFile(
     payload: { fileNameList: string[]; folderId: string },
     fileSize: number
@@ -97,7 +107,6 @@ export class DashboardComponent implements OnInit {
       next: (response: any) => {
         console.log('Signed URL fetched successfully:', response);
 
-        // Extract details from the response for the second API
         const fileData = response[0];
         const pdfPayload = {
           fileSize: fileSize,
@@ -107,7 +116,7 @@ export class DashboardComponent implements OnInit {
           originalFileName: fileData.originalFileName,
         };
 
-        this.processPDF(pdfPayload); // Call the second API
+        this.processPDF(pdfPayload);
       },
       error: (error: any) => {
         console.error('Error fetching signed URL:', error);
@@ -116,7 +125,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // Process the PDF file
   private processPDF(payload: {
     fileSize: number;
     folderId: string;
@@ -138,7 +146,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // Fetch login details from localStorage
   private getLoginDetails(): void {
     const loginDetails = localStorage.getItem('login-details');
     if (loginDetails) {
@@ -147,17 +154,15 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // Listen for folderId changes from queryParams or localStorage
   private listenToFolderIdChanges(): void {
     this.route.queryParams.subscribe((params) => {
       this.folderId =
         params['folder'] || localStorage.getItem('folderId') || null;
       console.log('Active Folder ID:', this.folderId);
 
-      // Save active folderId to localStorage
       if (this.folderId) {
         localStorage.setItem('folderId', this.folderId);
-        this.fetchFolderDetails(); // Fetch folder details whenever folderId changes
+        this.fetchFolderDetails();
       } else {
         console.warn('No folder ID provided.');
         this.folderDetails = null;
@@ -165,13 +170,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // Fetch folder details from the service
   private fetchFolderDetails(): void {
     if (this.folderId) {
       this.folderService.getFolderDetails(this.folderId).subscribe({
         next: (data) => {
           console.log('Folder Details:', data);
-          this.folderDetails = data.folderDetails; // Store folder details
+          this.folderDetails = data.folderDetails;
         },
         error: (err) => {
           console.error('Error fetching folder details:', err);
@@ -182,7 +186,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // Open account details dialog
   openAccountDetailsDialog(): void {
     this.dialog.open(AccountDetailsComponent, {
       width: '400px',
@@ -190,7 +193,6 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  // Toggle popup visibility
   togglePopup(event: Event): void {
     event.stopPropagation();
     this.isPopupVisible = !this.isPopupVisible;
@@ -202,7 +204,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // Close popup
   closePopup(): void {
     this.isPopupVisible = false;
     document.body.classList.remove('blurred');

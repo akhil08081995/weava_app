@@ -4,13 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './login-signup/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './common/shared.module';
-
+import { ChatComponent } from './chat/chat.component';
 import { LoginService } from './services/login.service';
 import { AuthInterceptor } from './services/auth.interceptor';
 
@@ -24,9 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ChatComponent],
   imports: [
-    BrowserModule, FontAwesomeModule, 
+    BrowserModule, FontAwesomeModule, FormsModule,  
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,

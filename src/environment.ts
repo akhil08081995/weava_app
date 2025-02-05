@@ -16,4 +16,10 @@ export const environment = {
   facebookAppId: '535363264530123', // Facebook App ID
   profitWellKey: '7ac9315395ff6284dbf6a22303c12463', // ProfitWell key
   // proxyUrl: '', // Uncomment and provide the proxy URL if required
+
+  azureStorage: {
+    accountName: 'weavadev',
+    containerName: 'pdfs',
+    sasToken: 'sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2025-04-04T05:04:48Z&st=2025-02-03T21:04:48Z&spr=https&sig=rnnPyfWXTrlHtGtf%2Fwan4PirGI78%2FpXowv6cjtXaRFY%3D', // Ensure this is valid
+  }
 };

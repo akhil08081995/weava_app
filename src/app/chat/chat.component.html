@@ -1,0 +1,30 @@
+<div>
+    <h1>Socket.IO Chat Test</h1>
+    <input
+      [(ngModel)]="messageInput"
+      type="text"
+      placeholder="Enter your message"
+    />
+    <button (click)="sendMessage()">Send</button>
+    <ul>
+      <li *ngFor="let msg of messages">
+        {{ msg.sender }}: {{ msg.message }}
+      </li>
+    </ul>
+  </div>
+  
+
+
+  <hr/>
+
+  
+  <div>
+    <h2>Upload a File to Azure Blob Storage</h2>
+    
+    <input type="file" (change)="onFileSelected($event)">
+    <button (click)="uploadFile()">Upload</button>
+    
+    <p>{{ uploadStatus }}</p>
+  </div>
+  
+  

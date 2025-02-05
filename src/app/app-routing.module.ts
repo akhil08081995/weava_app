@@ -7,6 +7,7 @@ import { SignupComponent } from './login-signup/signup/signup.component';
 import { ForgetPasswordComponent } from './login-signup/forget-password/forget-password.component';
 import { QuestionnaireComponent } from './login-signup/questionnaire/questionnaire.component';
 import { OnboardingComponent } from './login-signup/onboarding/onboarding.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
   // Route protected by AuthGuard
@@ -18,6 +19,12 @@ const routes: Routes = [
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'questionnaire', component: QuestionnaireComponent, canActivate: [AuthGuard] }, // Protected by AuthGuard
   { path: 'onboarding', component: OnboardingComponent, canActivate: [AuthGuard] }, // Protected by AuthGuard
+
+  // Add the Chat route before the wildcard route
+  { path: 'chat', component: ChatComponent },
+
+  // Default route: redirect to chat (optional)
+  { path: '', redirectTo: '/chat', pathMatch: 'full' },
 
   // Redirect unknown paths to login
   { path: '**', redirectTo: '/login' },
